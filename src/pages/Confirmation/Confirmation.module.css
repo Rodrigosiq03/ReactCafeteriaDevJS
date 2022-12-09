@@ -1,0 +1,50 @@
+div {
+    border-top: 1px solid #F0DB4F; 
+    color: white;
+}
+
+.form__confirm {
+    color: white;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+
+}
+.label__confirm {
+    padding: 10px;
+}
+.button__submit__confirm {
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #F0DB4F;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.input__confirm {
+    width: 300px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 10px;
+}
+.input__confirm:focus {
+    outline: none;
+}
+
+.confimation__msg {
+    padding-left: 50px;
+    color: #F0DB4F;
+}
+
+.text__hint {
+    color: #F0DB4F;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}

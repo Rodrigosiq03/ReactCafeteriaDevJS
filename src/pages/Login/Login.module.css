@@ -1,9 +1,4 @@
-body {
-    background-color: #2b2b2b;
-    margin: 0;
-    padding: 0;
-}
-.formSignup {
+.form__login {
     color: white;
     padding-top: 50px;
     display: flex;
@@ -13,10 +8,11 @@ body {
     text-align: center; 
 
 }
-label {
+.label__login {
     padding: 10px;
 }
-button {
+.button__submit__login {
+    cursor: pointer;
     width: 100px;
     height: 50px;
     border: 1px solid black;
@@ -25,11 +21,33 @@ button {
     margin-top: 30px;
     margin-bottom: 10px;
 }
-input {
+.input__login {
     width: 300px;
     height: 30px;
     border: 1px solid black;
     border-radius: 5px;
     background-color: white;
     margin-top: 10px;
+}
+.input__login:focus {
+    outline: none;
+}
+
+.link__register {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: #F0DB4F;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.link__register:hover {
+    color: #F0DB4F;
+    text-decoration: underline;
+}
+
+.text__hint {
+    color: #F0DB4F;
+    display: flex;
+    justify-content: space-around;
 }

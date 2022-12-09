@@ -1,0 +1,19 @@
+.div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.button__login {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #F0DB4F;
+
+}
+.button__login:hover {
+    background-color: #F0DB4F;
+    opacity: 0.8;
+}
