@@ -19,6 +19,11 @@ export default function Login() {
                 console.log("Logged in!", data);
             })
             .catch(err => {
+                if (err.message === "Incorrect username or password.") {
+                    document.getElementById('msgError').classList.remove(styles.hidden__error)
+                    document.getElementById('msgError').classList.add(styles.error__login)
+
+                }
                 console.error("Failed to log in ", err);
             })
     }
@@ -27,6 +32,7 @@ export default function Login() {
     return (
         <div>
             <h1 className={styles.text__hint}>Realize o Login</h1>
+            <h3 id='msgError' className={styles.hidden__error}>Usuário ou senha incorretos!!</h3>
             <form className={styles.form__login} onSubmit={onSubmit}>
                 <label className={styles.label__login} htmlFor='email'>Email</label>
                 <input className={styles.input__login} value={email} onChange={(event) => setEmail(event.target.value)} />

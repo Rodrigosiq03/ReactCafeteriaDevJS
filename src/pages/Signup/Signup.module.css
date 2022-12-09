@@ -30,6 +30,10 @@ body {
     background-color: #F0DB4F;
     opacity: 0.8;
 }
+.button__submit__signup:focus {
+    outline: none;
+    border: 2px solid #F0DB4F;
+}
 .input__signup {
     width: 300px;
     height: 30px;
@@ -40,10 +44,27 @@ body {
 }
 .input__signup:focus {
     outline: none;
+    border: 2px solid #F0DB4F;
 }
 
 .text__hint {
     color: #F0DB4F;
     display: flex;
     justify-content: space-around;
+}
+
+.hidden__error {
+    display: none;
+}
+
+.msg__email__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.msg__password__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
 }

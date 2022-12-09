@@ -42,7 +42,7 @@ const AccountLogin = ({ children }) => {
                     navigate('/menu')
                 },
                 onFailure: (err) => {
-                    console.error("onFailure: ", err);
+                    console.error("onFailure: ", err.message);
                     reject(err)
                 },
                 newPasswordRequired: (data) => {
@@ -57,7 +57,7 @@ const logout = () => {
     const user = Pool.getCurrentUser();
     if (user) {
         user.signOut();
-        navigate('/login');
+        navigate('/');
     } else {
         console.log('Falhou ao sair!');
     }
