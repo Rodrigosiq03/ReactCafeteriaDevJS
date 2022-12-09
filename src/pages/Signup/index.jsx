@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import UserPool from '../../UserPool';
+import React, { useState, useContext } from 'react';
 import styles from './Signup.module.css';
-import { useNavigate } from 'react-router-dom';
+import { AccountContext } from '../../components/AccountRegister';
 
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
+    
+
+    const { authenticate } = useContext(AccountContext)
 
     const onSubmit = (event) => {
         event.preventDefault();
-        navigate('/confirm')
 
-        UserPool.signUp(email, password, [], null, (err, data) => {
-            if (err) {
-                console.error(err)
-            }
-            console.log(data);
-            navigate('/confirm')
-        })
-    };
+        authenticate(email, password)
+            .then(data => {
+                console.log("Registered!", data);
+            })
+            .catch(err => {
+                console.error("Failed to register!", err);
+            })
+    }
 
 
     return (
         <div>
             <h1 className={styles.text__hint}>Realize o Cadastro</h1>
-            <form className={styles.formSignup} onSubmit={onSubmit}>
+            <form className={styles.form__signup} onSubmit={onSubmit}>
                 <label className={styles.label__signup} htmlFor='email'>Email</label>
                 <input className={styles.input__signup} value={email} onChange={(event) => setEmail(event.target.value)} />
                 <label className={styles.label__signup} htmlFor='password'>Password</label>
