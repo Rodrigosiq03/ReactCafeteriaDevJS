@@ -1,0 +1,8 @@
+.title__welcome {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: #F0DB4F;
+    text-align: center;
+    margin-bottom: 20px;
+}
