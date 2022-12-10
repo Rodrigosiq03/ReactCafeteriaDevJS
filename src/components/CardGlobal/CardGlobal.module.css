@@ -1,0 +1,37 @@
+@import '../../globalStyles.module.css';
+
+.card__global {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 24px;
+    width: 400px;
+    height: 430px;
+    border-radius: 20px;
+    background-color: var(--amarelo);
+}
+
+@media (max-width: 424px) {
+    .card__global {
+        margin-top: 70px;
+        width: 250px;
+        height: 300px;
+    }
+}
+@media (max-width: 285px) {
+    .card__global {
+        margin-top: 70px;
+        width: 220px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 235px) {
+    .card__global {
+        margin-top: 70px;
+        width: 180px;
+        height: 300px;
+    }
+}

@@ -1,57 +1,32 @@
-.form__login {
-    color: white;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center; 
-
-}
-.label__login {
-    padding: 10px;
-}
-.button__submit__login {
-    cursor: pointer;
-    width: 100px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #F0DB4F;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-.button__submit__login:hover {
-    background-color: #F0DB4F;
-    opacity: 0.8;
-}
-.input__login {
-    width: 300px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-    margin-top: 10px;
-}
-.input__login:focus {
-    outline: none;
-}
+@import '../../globalStyles.module.css';
 
 .link__register {
     padding-top: 10px;
     display: flex;
     justify-content: center;
-    color: #F0DB4F;
+    color: var(--cinza);
     text-decoration: none;
     margin-top: 10px;
 }
 .link__register:hover {
-    color: #F0DB4F;
+    color: var(--cinza);
     text-decoration: underline;
 }
 
-.text__hint {
-    color: #F0DB4F;
+.hidden__error {
+    display: none;
+}
+.error__login {
+    color: red;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 424px) {
+    .link__register {
+        margin-top: 0px;
+        margin-bottom: 16px;
+        padding-top: 4px;
+    }
 }
