@@ -12,6 +12,10 @@
     color: var(--cinza);
     text-decoration: underline;
 }
+.link__register:active {
+    color: var(--cinza);
+    text-decoration: underline;
+}
 
 .hidden__error {
     display: none;
