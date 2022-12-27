@@ -1,0 +1,33 @@
+@import '../../globalStyles.module.css';
+
+.container__card__image {
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 300px;
+    height: 300px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+.container__card__image:hover {
+    opacity: 0.8;
+    transition: transform ease-in-out 0.2s;
+    transform:  scale(1.03);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.container__card__image:active {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}

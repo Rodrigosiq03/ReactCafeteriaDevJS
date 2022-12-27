@@ -1,22 +1,31 @@
 import React, { useState, useContext } from 'react';
 import { AccountContext } from '../../components/AccountLogin';
 import styles from './Login.module.css';
-import globalStyles from '../../globalStyles.module.css'
+import globalStyles from '../../globalStyles.module.css';
 import { Link } from 'react-router-dom';
 import CardGlobal from '../../components/CardGlobal';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [admin, setAdmin] = useState('');
 
     const { authenticate } = useContext(AccountContext)
+
+    const isAdmin = (event) => {
+        event.preventDefault();
+
+        setAdmin(event.target)
+    }
 
 
     const onSubmit = (event) => {
         event.preventDefault();
 
-        authenticate(email, password)
+        authenticate(email, password, admin)
             .then(data => {
                 console.log("Logged in!", data);
             })
@@ -42,6 +51,7 @@ export default function Login() {
                     <label className={globalStyles.label__global} htmlFor='password'>Password</label>
                     <input className={globalStyles.input__global} value={password} onChange={(event) => setPassword(event.target.value)} />
                     <button style={{marginTop: '20px'}} className={globalStyles.button__submit__global} type='submit' >Login</button>
+                    <FormControlLabel control={<Checkbox value={admin} onChange={isAdmin} defaultunchecked='true' />} className={globalStyles.label__global} label="É um ADMIN?" />
                 </form>
                 <Link className={styles.link__register} to={'/register'}>Registre-se</Link>
             </CardGlobal>

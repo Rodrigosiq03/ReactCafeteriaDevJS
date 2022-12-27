@@ -6,7 +6,7 @@
     justify-content: center;
     color: var(--cinza);
     text-decoration: none;
-    margin-top: 10px;
+    font-size: 20px;
 }
 .link__register:hover {
     color: var(--cinza);

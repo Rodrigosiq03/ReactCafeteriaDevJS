@@ -26,7 +26,7 @@ const AccountLogin = ({ children }) => {
         })
     }
 
-    const authenticate =  async (Username, Password) => {
+    const authenticate =  async (Username, Password, isAdmin) => {
         return await new Promise ((resolve, reject) => {
             const user = new CognitoUser({ Username, Pool })
 
@@ -39,7 +39,11 @@ const AccountLogin = ({ children }) => {
                 onSuccess: (data) => {
                     console.log("onSuccess: ", data);
                     resolve(data)
-                    navigate('/menu')
+                    if (isAdmin) {
+                        navigate('/admin')
+                    } else {
+                        navigate('/menu')
+                    }
                 },
                 onFailure: (err) => {
                     console.error("onFailure: ", err.message);

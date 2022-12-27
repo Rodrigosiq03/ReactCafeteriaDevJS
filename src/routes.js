@@ -7,7 +7,14 @@ import BasePage from './components/BasePage';
 import Index from './pages/IndexPage';
 import { AccountLogin } from './components/AccountLogin';
 import { AccountRegister } from './components/AccountRegister';
-import globalStyles from './globalStyles.module.css'
+import globalStyles from './globalStyles.module.css';
+import Admin from './pages/Admin';
+import FunctionsADMIN from './components/FunctionsADMIN';
+import Cardapio from './pages/Cardapio';
+import Agendamento from './pages/Agendamento';
+import SobreNos from './pages/SobreNos';
+import Contato from './pages/Contato';
+
 
 export default function AppRoutes() {
   return (
@@ -28,6 +35,12 @@ export default function AppRoutes() {
           />
           <Route path='/confirm' element={<Confirmation />} />
           <Route path='/menu' element={<Index />} />
+          <Route path='/cardapio' element={<Cardapio />} />
+          <Route path='/agendamento' element={<Agendamento />} />
+          <Route path='/sobrenos' element={<SobreNos />} />
+          <Route path='/contato' element={<Contato />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin/:data' element={<FunctionsADMIN/>} />
         </Routes>
       </AccountLogin>  
     </Router>

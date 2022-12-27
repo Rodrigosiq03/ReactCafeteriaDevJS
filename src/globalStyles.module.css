@@ -1,6 +1,10 @@
 :root {
     --amarelo : #F0DB4F;
     --cinza: #2b2b2b;
+    --principal_fonte: 'Open Sans', sans-serif;
+    --secundaria_fonte: 'Raleway', sans-serif;
+
+    font-family: var(--principal_fonte);
 }
 .div__container__card{
     border-top: 2px solid var(--amarelo);
@@ -16,9 +20,16 @@ body {
     padding: 0;
     color: white;
 }
+.text__hint__global {
+    color: var(--cinza);
+    display: flex;
+    justify-content: space-around;
+    font-size: 40px;
+    font-weight: 700;
+}
 .form__global {
     color: white;
-    padding-top: 20px;
+    padding-top: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,16 +40,18 @@ body {
 .label__global {
     color: var(--cinza);
     padding: 10px;
+    font-size: 24px;
 }
 .button__submit__global {
     cursor: pointer;
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 70px;
     color: white;
     border-radius: 10px;
     background-color: var(--cinza);
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 20px;
 }
 .button__submit__global:hover {
     background-color: var(--cinza);
@@ -60,12 +73,20 @@ body {
     outline: none;
     border: 1px solid var(--cinza);
 }
-
-.text__hint__global {
+.logout__global__btn {
+    width: 100px;
+    height: 50px;
+    background-color: var(--amarelo);
     color: var(--cinza);
-    display: flex;
-    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 15px;
 }
+.logout__global__btn:hover {
+    background-color: var(--cinza);
+    color: var(--amarelo);
+    border: 1px solid var(--amarelo);
+}
+
 
 @media (max-width: 424px) {
     .principal__title {
@@ -73,7 +94,6 @@ body {
     }
     .text__hint__global {
         font-size: 20px;
-        padding-top: 10px;
     }
     .input__global {
         width: 200px;
@@ -81,7 +101,13 @@ body {
         margin-top: 0;
     }
     .form__global {
-        padding-top: 0;
+        padding: 0;
+    }
+    .button__submit__global {
+        width: 150px;
+        height: 50px;
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 }
 @media (max-width: 285px) {
