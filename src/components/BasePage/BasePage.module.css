@@ -6,14 +6,19 @@
 }
 .button__login {
     cursor: pointer;
-    width: 100px;
-    height: 50px;
+    width: 300px;
+    height: 100px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #F0DB4F;
+    font-size: 30px;
 
 }
 .button__login:hover {
+    background-color: #F0DB4F;
+    opacity: 0.8;
+}
+.button__login:active {
     background-color: #F0DB4F;
     opacity: 0.8;
 }

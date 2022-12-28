@@ -13,18 +13,26 @@
     background-color: var(--amarelo);
 }
 
-@media (max-width: 424px) {
+@media (max-width: 730px) {
+    .card__global {
+        margin-top: 70px;
+        width: 400px;
+        height: 530px;
+    }
+}
+
+@media (max-width: 430px) {
+    .card__global {
+        margin-top: 70px;
+        width: 300px;
+        height: 400px;
+    }
+}
+@media (max-width: 325px) {
     .card__global {
         margin-top: 70px;
         width: 250px;
-        height: 300px;
-    }
-}
-@media (max-width: 285px) {
-    .card__global {
-        margin-top: 70px;
-        width: 220px;
-        height: 300px;
+        height: 370px;
     }
 }
 
