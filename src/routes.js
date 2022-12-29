@@ -16,6 +16,8 @@ import SobreNos from './pages/SobreNos';
 import Contato from './pages/Contato';
 import VerProdutos from './components/VerProdutos';
 import CriarProduto from './components/CriarProduto';
+import AtualizarProduto from './components/AtualizarProduto';
+import FormEditProduct from './components/FormEditProduct';
 
 
 export default function AppRoutes() {
@@ -42,11 +44,12 @@ export default function AppRoutes() {
           <Route path='/sobrenos' element={<SobreNos />} />
           <Route path='/contato' element={<Contato />} />
           <Route path='/admin' element={<Admin />} />
-          <Route path='/admin/:data' element={<FunctionsADMIN/>} />
-          <Route path='/admin/:data/verprodutos' element={<VerProdutos />} />
-          <Route path='/admin/:data/criarproduto' element={<CriarProduto />} />
-          <Route path='/admin/:data/atualizarproduto' element={<h1>teste atualizarproduto</h1>} />
-          <Route path='/admin/:data/removerproduto' element={<h1>teste removerproduto</h1>} />
+          <Route path='/admin/functions' element={<FunctionsADMIN/>} />
+          <Route path='/admin/functions/verprodutos' element={<VerProdutos />} />
+          <Route path='/admin/functions/criarproduto' element={<CriarProduto />} />
+          <Route path='/admin/functions/atualizarproduto' element={<AtualizarProduto />} />
+          <Route path='/admin/functions/atualizarproduto/:data' element={<FormEditProduct />} />
+          <Route path='/admin/functions/removerproduto' element={<h1>teste removerproduto</h1>} />
         </Routes>
       </AccountLogin>  
     </Router>

@@ -1,10 +1,13 @@
+import React from 'react';
+import styles from './FormEditProduct.module.css';
 import { Button, Snackbar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import React from 'react'
-import styles from './CriarProduto.module.css'
 import InputTextAdmin from '../InputTextAdmin';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-export default function CriarProduto() {
+export default function FormEditProduct({ id }) {
+    const params = useParams();
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
@@ -33,8 +36,6 @@ export default function CriarProduto() {
         </React.Fragment>
     );
 
-
-
     const handleSubmit = (event) => {
         let body = {
             productName,
@@ -46,8 +47,8 @@ export default function CriarProduto() {
 
         event.preventDefault();
 
-        fetch('https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/CreateProduct', {
-            method: 'POST',
+        fetch(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/UpdateProduct/${params.data}`, {
+            method: 'PUT',
             body: JSON.stringify(body),
         })
         .then(() => {
@@ -56,22 +57,31 @@ export default function CriarProduto() {
         .catch((err) => console.log(err));
     }
 
+
     return (
-        <div className={styles.container__criarproduto}>
-            <h1>Criar Produto</h1>
-            <form className={styles.form__create} onSubmit={handleSubmit}>
-                <InputTextAdmin required sx={{paddingBottom: '10px'}} value={productName} onChange={event => setProductName(event.target.value)} id="standard-basic"  labelInput="Product Name" />
-                <InputTextAdmin sx={{paddingBottom: '10px'}} value={productDesc} onChange={event => setProductDesc(event.target.value)} id="standard-basic"  labelInput="Product Description" />
-                <InputTextAdmin type={'number'} sx={{paddingBottom: '10px'}} value={productPrice} onChange={event => setProductPrice(event.target.value)} id="standard-basic"  labelInput="Product Price" />
-                <Button type='submit' variant="outlined">Criar Produto</Button>
+        <div>
+            <form className={styles.form__edit} onSubmit={handleSubmit}>
+                <InputTextAdmin 
+                    value={productName} 
+                    onChange={event => setProductName(event.target.value)}  
+                    labelInput="Product Name" />
+                <InputTextAdmin 
+                    value={productDesc} 
+                    onChange={event => setProductDesc(event.target.value)}  
+                    labelInput="Product Description" />
+                <InputTextAdmin type={'number'} 
+                    value={productPrice} 
+                    onChange={event => setProductPrice(event.target.value)} 
+                    labelInput="Product Price" />
+                <Button type='submit' variant="outlined">Editar Produto</Button>
             </form>
             <Snackbar
                 open={open}
                 autoHideDuration={5000}
                 onClose={handleClose}
-                message={`Produto ${productName} criado com sucesso!`}
+                message={`Produto com id ${params.data} atualizado com sucesso!`}
                 action={action}
-            />
+            /> 
         </div>
     )
 }

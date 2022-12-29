@@ -25,3 +25,14 @@
     color: var(--amarelo);
     border: 1px solid var(--amarelo);
 }
+.button__request:active {
+    background-color: var(--amarelo);
+    color: var(--cinza);
+    border: 1px solid black;
+}
+
+@media (max-width: 768px) {
+    .container__buttons {
+        flex-direction: column;
+    }
+}
