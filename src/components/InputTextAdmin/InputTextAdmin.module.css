@@ -1,0 +1,6 @@
+@import '../../globalStyles.module.css';
+
+.input {
+    width: 250px;
+    height: 100px;
+}

@@ -1,8 +1,6 @@
 @import '../../globalStyles.module.css';
 
-.card__row {
+.form__create {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
+    flex-direction: column;
 }

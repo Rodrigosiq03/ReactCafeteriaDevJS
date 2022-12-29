@@ -22,3 +22,29 @@
 .vertical__plus__line {
     border-left: 2px solid var(--amarelo);
 }
+
+@media (max-width: 730px) {
+    .main__container__card__image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 24px;
+    }
+    .column__card__image {
+        display: flex;
+        flex-direction: column;
+    }
+    .row__card__image__1 {
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+    .row__card__image__2 {
+        display: flex;
+        flex-direction: column;
+    }
+    .vertical__plus__line {
+        border: none;
+    }
+}

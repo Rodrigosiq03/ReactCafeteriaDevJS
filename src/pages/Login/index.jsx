@@ -11,14 +11,18 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [admin, setAdmin] = useState('');
+    const [admin, setAdmin] = useState(false);
 
     const { authenticate } = useContext(AccountContext)
 
     const isAdmin = (event) => {
         event.preventDefault();
-
-        setAdmin(event.target)
+        if (!admin) {
+            setAdmin(true)
+        } else {
+            setAdmin(false)
+        }
+        console.log(admin);
     }
 
 

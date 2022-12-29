@@ -39,10 +39,10 @@ const AccountLogin = ({ children }) => {
                 onSuccess: (data) => {
                     console.log("onSuccess: ", data);
                     resolve(data)
-                    if (isAdmin) {
-                        navigate('/admin')
-                    } else {
+                    if (!isAdmin) {
                         navigate('/menu')
+                    } else {
+                        navigate('/admin')
                     }
                 },
                 onFailure: (err) => {

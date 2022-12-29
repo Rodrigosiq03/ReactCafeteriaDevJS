@@ -1,0 +1,36 @@
+@import '../../globalStyles.module.css';
+
+.card__container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.card {
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--amarelo);
+    width: 300px;
+}
+.card__content {
+    background-color: var(--amarelo);
+}
+.card__actions {
+    border-top: 1px solid var(--cinza);
+    background-color: var(--amarelo);
+}
+.card__actions button {
+    color: var(--cinza);
+    background-color: var(--amarelo);
+}
+.card__actions button:hover {
+    color: var(--amarelo);
+    background-color: var(--cinza);
+}
+.card__actions button:active {
+    color: var(--amarelo);
+    background-color: var(--cinza);
+}
+
+.card__hover:hover {
+    box-shadow: 0 0 10px 0 var(--cinza);
+}

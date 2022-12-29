@@ -12,6 +12,7 @@
     border: 2px solid white;
     border-radius: 10px;
     margin: 20px;
+    color: white;
     font-size: 30px;
     font-weight: 700;
 }
@@ -27,7 +28,11 @@
     opacity: 0.8;
 }
 
-.link {
-    color: white;
-    text-decoration: none;
+@media (max-width: 450px) {
+    .container__card__image {
+        width: 200px;
+        height: 200px;
+        font-size: 20px;
+    }
 }
+
