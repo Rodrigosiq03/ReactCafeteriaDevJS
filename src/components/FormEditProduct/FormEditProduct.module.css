@@ -1,4 +1,29 @@
+@import '../../globalStyles.module.css';
+
+.container__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 .form__edit {
     display: flex;
     flex-direction: column;
+}
+
+.submit__btn {
+    border: 2px solid var(--amarelo);
+}
+
+.back__btn {
+    background-color: var(--amarelo);
+    color: var(--cinza);
+    margin-top: 20px;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.5rem;
 }

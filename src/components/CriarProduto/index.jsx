@@ -3,8 +3,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import React from 'react'
 import styles from './CriarProduto.module.css'
 import InputTextAdmin from '../InputTextAdmin';
+import { useNavigate } from 'react-router-dom';
 
 export default function CriarProduto() {
+
+    const navigate = useNavigate();
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
@@ -63,7 +66,7 @@ export default function CriarProduto() {
                 <InputTextAdmin required sx={{paddingBottom: '10px'}} value={productName} onChange={event => setProductName(event.target.value)} id="standard-basic"  labelInput="Product Name" />
                 <InputTextAdmin sx={{paddingBottom: '10px'}} value={productDesc} onChange={event => setProductDesc(event.target.value)} id="standard-basic"  labelInput="Product Description" />
                 <InputTextAdmin type={'number'} sx={{paddingBottom: '10px'}} value={productPrice} onChange={event => setProductPrice(event.target.value)} id="standard-basic"  labelInput="Product Price" />
-                <Button type='submit' variant="outlined">Criar Produto</Button>
+                <Button className={styles.submit__btn} type='submit' variant="outlined">Criar Produto</Button>
             </form>
             <Snackbar
                 open={open}
@@ -72,6 +75,7 @@ export default function CriarProduto() {
                 message={`Produto ${productName} criado com sucesso!`}
                 action={action}
             />
+            <button className={styles.back__btn} onClick={() => navigate('/admin/functions')} >Voltar</button>
         </div>
     )
 }

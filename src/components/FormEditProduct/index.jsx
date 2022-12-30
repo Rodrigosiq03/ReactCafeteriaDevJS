@@ -3,11 +3,12 @@ import styles from './FormEditProduct.module.css';
 import { Button, Snackbar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import InputTextAdmin from '../InputTextAdmin';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-export default function FormEditProduct({ id }) {
+export default function FormEditProduct() {
     const params = useParams();
+    const navigate = useNavigate();
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
@@ -47,19 +48,24 @@ export default function FormEditProduct({ id }) {
 
         event.preventDefault();
 
-        fetch(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/UpdateProduct/${params.data}`, {
-            method: 'PUT',
-            body: JSON.stringify(body),
-        })
-        .then(() => {
-            setOpen(true);
-        })
-        .catch((err) => console.log(err));
+        axios.put(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/UpdateProduct/${params.data}`, body)
+            .then(() => {
+                setOpen(true);
+            })
+            .catch((err) => console.log(err));
+
+        // fetch(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/UpdateProduct/${params.data}`, {
+        //     body: JSON.stringify(body),
+        // })
+        // .then(() => {
+        //     setOpen(true);
+        // })
+        // .catch((err) => console.log(err));
     }
 
 
     return (
-        <div>
+        <div className={styles.container__items}>
             <form className={styles.form__edit} onSubmit={handleSubmit}>
                 <InputTextAdmin 
                     value={productName} 
@@ -73,8 +79,9 @@ export default function FormEditProduct({ id }) {
                     value={productPrice} 
                     onChange={event => setProductPrice(event.target.value)} 
                     labelInput="Product Price" />
-                <Button type='submit' variant="outlined">Editar Produto</Button>
+                <Button className={styles.submit__btn} type='submit' variant="outlined">Editar Produto</Button>
             </form>
+            <button className={styles.back__btn} onClick={() => navigate('/admin/functions/atualizarproduto')} >Voltar</button>
             <Snackbar
                 open={open}
                 autoHideDuration={5000}
