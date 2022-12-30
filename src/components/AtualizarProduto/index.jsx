@@ -31,30 +31,15 @@ export default function AtualizarProduto() {
                         productName={product.productName} 
                         productDesc={product.productDesc} 
                         productPrice={product.productPrice} 
-                        children={ <EditButton handleOnClick={() => {navigate(`/admin/functions/atualizarproduto/${product.id}`);}}>
-                            Editar produto
+                        children={ 
+                            <EditButton handleOnClick={() => {navigate(`/admin/functions/atualizarproduto/${product.id}`);}}>
+                                Editar produto
                             </EditButton> 
                         }
                     />
                 )
             }) }
-
-
-
-
-            {/* <form className={styles.form__create} onSubmit={handleSubmit}>
-                <InputTextAdmin required sx={{paddingBottom: '10px'}} value={productName} onChange={event => setProductName(event.target.value)} id="standard-basic"  labelInput="Product Name" />
-                <InputTextAdmin sx={{paddingBottom: '10px'}} value={productDesc} onChange={event => setProductDesc(event.target.value)} id="standard-basic"  labelInput="Product Description" />
-                <InputTextAdmin type={'number'} sx={{paddingBottom: '10px'}} value={productPrice} onChange={event => setProductPrice(event.target.value)} id="standard-basic"  labelInput="Product Price" />
-                <Button type='submit' variant="outlined">Criar Produto</Button>
-            </form>
-            <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleClose}
-                message={`Produto ${productName} atualizado com sucesso!`}
-                action={action}
-            /> */}
+            <button className={styles.back__btn} onClick={() => navigate('/admin/functions')} >Voltar</button>
         </div>
     )
 }

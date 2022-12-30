@@ -18,6 +18,8 @@ import VerProdutos from './components/VerProdutos';
 import CriarProduto from './components/CriarProduto';
 import AtualizarProduto from './components/AtualizarProduto';
 import FormEditProduct from './components/FormEditProduct';
+import RemoverProduto from './components/RemoverProduto';
+import FormRemoveProduct from './components/FormRemoveProduct';
 
 
 export default function AppRoutes() {
@@ -49,7 +51,8 @@ export default function AppRoutes() {
           <Route path='/admin/functions/criarproduto' element={<CriarProduto />} />
           <Route path='/admin/functions/atualizarproduto' element={<AtualizarProduto />} />
           <Route path='/admin/functions/atualizarproduto/:data' element={<FormEditProduct />} />
-          <Route path='/admin/functions/removerproduto' element={<h1>teste removerproduto</h1>} />
+          <Route path='/admin/functions/removerproduto' element={<RemoverProduto />} />
+          <Route path='/admin/functions/removerproduto/:data' element={<FormRemoveProduct />} />
         </Routes>
       </AccountLogin>  
     </Router>

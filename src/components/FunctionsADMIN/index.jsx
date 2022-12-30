@@ -1,6 +1,5 @@
 import React from 'react';
 import RequestFunctions from '../ResquestFunctions';
-import styles from './FunctionsADMIN.module.css';
 
 export default function FunctionsADMIN() {
     return (

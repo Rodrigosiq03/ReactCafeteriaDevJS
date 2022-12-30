@@ -34,14 +34,14 @@ const TextFieldAdmin = styled(TextField)({
     },
 });
 
-export default function InputTextAdmin ({ labelInput, value, onChange, type=null }) {
+export default function InputTextAdmin ({ labelInput, value, onChange, type=null, required=false }) {
     return (
         <TextFieldAdmin 
             type={type}
             onChange={onChange} 
             value={value} 
             className={styles.input} 
-            required 
+            required={required} 
             label={labelInput} 
             variant="outlined" />
     )

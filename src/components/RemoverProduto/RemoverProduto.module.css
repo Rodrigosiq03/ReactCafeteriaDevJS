@@ -1,15 +1,10 @@
 @import '../../globalStyles.module.css';
 
-.container__criarproduto {
+.container__removerproduto {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.form__create {
-    display: flex;
-    flex-direction: column;
 }
 
 .back__btn {

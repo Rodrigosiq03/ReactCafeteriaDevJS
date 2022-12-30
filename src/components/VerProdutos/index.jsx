@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import styles from './VerProdutos.module.css';
 import axios from 'axios';
 import GetProducts from '../GetProducts';
+import { useNavigate } from 'react-router-dom';
 
 export default function VerProdutos() {
+    const navigate = useNavigate();
     const [products, setProducts] = React.useState([]);
 
     useEffect(() => {
@@ -26,6 +28,7 @@ export default function VerProdutos() {
                         productPrice={product.productPrice} />
                 )
             })}
+            <button className={styles.back__btn} onClick={() => navigate('/admin/functions')} >Voltar</button>
         </div>
     )
 }
