@@ -1,0 +1,14 @@
+.back__btn {
+    background-color: var(--amarelo);
+    color: var(--cinza);
+    margin-top: 20px;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+.center__btn {
+    display: flex;
+    justify-content: center;
+}

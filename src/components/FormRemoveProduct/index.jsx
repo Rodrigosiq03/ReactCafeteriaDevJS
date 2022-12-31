@@ -12,6 +12,7 @@ export default function FormRemoveProduct () {
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
+    const [productCategory, setProductCategory] = React.useState(''); 
     const [productPrice, setProductPrice] = React.useState(0);
 
     useEffect(() => {
@@ -20,6 +21,7 @@ export default function FormRemoveProduct () {
             .then((product) => {
                 setProductName(product.data.Item.productName);
                 setProductDesc(product.data.Item.productDesc);
+                setProductCategory(product.data.Item.productCategory);
                 setProductPrice(product.data.Item.productPrice);
             })
             .catch((err) => console.log(err));
@@ -52,6 +54,7 @@ export default function FormRemoveProduct () {
         let body = {
             productName,
             productDesc,
+            productCategory,
             productPrice
         }
 
@@ -73,10 +76,14 @@ export default function FormRemoveProduct () {
             <form className={styles.form__remove} onSubmit={handleSubmit}>
                 <h3>ProductName</h3>
                 <InputTextAdmin 
+                    disabled={true}
                     labelInput={productName} />
                 <h3>ProductDesc</h3>
                 <InputTextAdmin 
                     labelInput={productDesc} />
+                <h3>ProductCategory</h3>
+                <InputTextAdmin 
+                    labelInput={productCategory} />
                 <h3>ProductPrice</h3>
                 <InputTextAdmin type={'number'} 
                     labelInput={productPrice} />

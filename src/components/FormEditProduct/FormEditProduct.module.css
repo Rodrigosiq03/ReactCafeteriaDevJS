@@ -16,7 +16,9 @@
 
 .submit__btn {
     border: 2px solid var(--amarelo);
+    color: var(--amarelo);
 }
+
 
 .back__btn {
     background-color: var(--amarelo);
