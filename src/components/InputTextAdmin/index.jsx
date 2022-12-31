@@ -36,7 +36,7 @@ const TextFieldAdmin = styled(TextField)({
 
 export default function InputTextAdmin ({ labelInput, value, onChange, type=null, required=false }) {
     return (
-        <TextFieldAdmin 
+        <TextFieldAdmin
             type={type}
             onChange={onChange} 
             value={value} 

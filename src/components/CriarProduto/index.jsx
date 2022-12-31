@@ -11,6 +11,7 @@ export default function CriarProduto() {
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
+    const [productCategory, setProductCategory] = React.useState('');
     const [productPrice, setProductPrice] = React.useState(0);
 
     const [open, setOpen] = React.useState(false);
@@ -42,6 +43,7 @@ export default function CriarProduto() {
         let body = {
             productName,
             productDesc,
+            productCategory,
             productPrice
         }
 
@@ -65,6 +67,7 @@ export default function CriarProduto() {
             <form className={styles.form__create} onSubmit={handleSubmit}>
                 <InputTextAdmin required sx={{paddingBottom: '10px'}} value={productName} onChange={event => setProductName(event.target.value)} id="standard-basic"  labelInput="Product Name" />
                 <InputTextAdmin sx={{paddingBottom: '10px'}} value={productDesc} onChange={event => setProductDesc(event.target.value)} id="standard-basic"  labelInput="Product Description" />
+                <InputTextAdmin sx={{paddingBottom: '10px'}} value={productCategory} onChange={event => setProductCategory(event.target.value)} id="standard-basic"  labelInput="Product Category" />
                 <InputTextAdmin type={'number'} sx={{paddingBottom: '10px'}} value={productPrice} onChange={event => setProductPrice(event.target.value)} id="standard-basic"  labelInput="Product Price" />
                 <Button className={styles.submit__btn} type='submit' variant="outlined">Criar Produto</Button>
             </form>

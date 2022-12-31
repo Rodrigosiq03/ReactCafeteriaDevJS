@@ -7,6 +7,45 @@
     justify-content: center;
 }
 
+.label__filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: var(--amarelo);
+    margin-top: 20px;
+}
+
+.dropdown__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    border: 2px solid var(--amarelo);
+    background-color: var(--amarelo);
+    font-size: 20px;
+    color: var(--cinza);
+    padding: 10px;
+}
+.dropdown__category:hover {
+    background-color: var(--cinza);
+    color: var(--amarelo);
+}
+.dropdown__category:focus {
+    background-color: var(--cinza);
+    color: var(--amarelo);
+    border: 2px solid var(--amarelo);
+}
+.dropdown__category:active {
+    background-color: var(--cinza);
+    color: var(--amarelo);
+    border: 2px solid var(--amarelo);
+}
+
+
 .back__btn {
     background-color: var(--amarelo);
     color: var(--cinza);
@@ -16,3 +55,4 @@
     height: 50px;
     font-size: 1.5rem;
 }
+

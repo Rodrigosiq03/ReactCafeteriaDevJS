@@ -12,6 +12,7 @@ export default function FormEditProduct() {
 
     const [productName, setProductName] = React.useState('');
     const [productDesc, setProductDesc] = React.useState('');
+    const [productCategory, setProductCategory] = React.useState('');
     const [productPrice, setProductPrice] = React.useState(0);
 
     const [open, setOpen] = React.useState(false);
@@ -41,6 +42,7 @@ export default function FormEditProduct() {
         let body = {
             productName,
             productDesc,
+            productCategory,
             productPrice
         }
 
@@ -75,6 +77,10 @@ export default function FormEditProduct() {
                     value={productDesc} 
                     onChange={event => setProductDesc(event.target.value)}  
                     labelInput="Product Description" />
+                <InputTextAdmin 
+                    value={productCategory} 
+                    onChange={event => setProductCategory(event.target.value)}  
+                    labelInput="Product Category" />
                 <InputTextAdmin type={'number'} 
                     value={productPrice} 
                     onChange={event => setProductPrice(event.target.value)} 
