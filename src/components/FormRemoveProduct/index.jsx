@@ -16,7 +16,6 @@ export default function FormRemoveProduct () {
     const [productPrice, setProductPrice] = React.useState(0);
 
     useEffect(() => {
-        axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
         axios.get(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchProduct/${params.data}`)
             .then((product) => {
                 setProductName(product.data.Item.productName);
@@ -25,7 +24,7 @@ export default function FormRemoveProduct () {
                 setProductPrice(product.data.Item.productPrice);
             })
             .catch((err) => console.log(err));
-    })
+    } ,[params.data])
 
     const [open, setOpen] = React.useState(false);
 
@@ -75,7 +74,7 @@ export default function FormRemoveProduct () {
         <div className={styles.container__removerproduto}>
             <form className={styles.form__remove} onSubmit={handleSubmit}>
                 <h3>ProductName</h3>
-                <InputTextAdmin 
+                <InputTextAdmin
                     disabled={true}
                     labelInput={productName} />
                 <h3>ProductDesc</h3>

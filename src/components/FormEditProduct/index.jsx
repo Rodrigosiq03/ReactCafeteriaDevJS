@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './FormEditProduct.module.css';
 import { Button, Snackbar, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -14,6 +14,20 @@ export default function FormEditProduct() {
     const [productDesc, setProductDesc] = React.useState('');
     const [productCategory, setProductCategory] = React.useState('');
     const [productPrice, setProductPrice] = React.useState(0);
+
+    useEffect(() => {
+        axios.get(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchProduct/${params.data}`)
+            .then((product) => {
+                console.log(product.data.Item.productCategory);
+                setProductName(product.data.Item.productName);
+                setProductDesc(product.data.Item.productDesc);
+                if (typeof product.data.Item.productCategory !== 'undefined') {
+                    setProductCategory(product.data.Item.productCategory);
+                }
+                setProductPrice(product.data.Item.productPrice);
+            })
+            .catch((err) => console.log(err));
+    }, [params.data]);
 
     const [open, setOpen] = React.useState(false);
 
@@ -82,11 +96,11 @@ export default function FormEditProduct() {
                     onChange={event => setProductDesc(event.target.value)}  
                     labelInput="Product Description" />
                 <InputTextAdmin 
-                    value={productCategory} 
+                    value={productCategory}
                     onChange={event => setProductCategory(event.target.value)}  
                     labelInput="Product Category" />
                 <InputTextAdmin type={'number'} 
-                    value={productPrice} 
+                    value={productPrice}
                     onChange={event => setProductPrice(event.target.value)} 
                     labelInput="Product Price" />
                 <Button className={styles.submit__btn} type='submit' variant="outlined">Editar Produto</Button>
