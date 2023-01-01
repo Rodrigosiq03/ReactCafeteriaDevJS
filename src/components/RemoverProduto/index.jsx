@@ -4,6 +4,7 @@ import EditButton from '../EditButton';
 import axios from 'axios';
 import styles from './RemoverProduto.module.css';
 import { useNavigate } from 'react-router-dom';
+import FilterProducts from '../FilterProducts';
 
 export default function RemoverProduto() {
     const navigate = useNavigate();
@@ -18,13 +19,16 @@ export default function RemoverProduto() {
     }, [])
 
     const handleChangeFilter = (e) => {
-        const category = e.target.value;
+        var category = e.target.value;
         if (category === "") {
             axios.get('https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchAllProducts')
                 .then((response) => {
                     setProducts(response.data.Items);
                 })
             return;
+        }
+        if (category === "Cafés") {
+            category = "Cafes";
         }
         axios.get(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchProductsByCategory/${category}`)
             .then((response) => {
@@ -37,15 +41,7 @@ export default function RemoverProduto() {
     return (
         <div className={styles.container__removerproduto}>
             <h1>Remover Produto</h1>
-            <label className={styles.label__filter} htmlFor="category"><strong>Escolha uma categoria para filtrar os produtos listados</strong></label>
-            <select onChange={handleChangeFilter} className={styles.dropdown__category}>
-                <option value="">Categoria</option>
-                <option value="Bebidas frias">Bebidas frias</option>
-                <option value="Bebidas quentes">Bebidas quentes</option>
-                <option value="Salgados">Salgados</option>
-                <option value="Pratos">Pratos</option>
-                <option value="Doces">Doces</option>
-            </select>
+            <FilterProducts handleChangeFilter={handleChangeFilter} />
             { products.map((product) => {
                 return (
                     <GetProducts 

@@ -46,6 +46,10 @@ export default function FormEditProduct() {
             productPrice
         }
 
+        if (productCategory === 'Cafés') {
+            body.productCategory = 'Cafes';
+        }
+
         console.log(body);
 
         event.preventDefault();
