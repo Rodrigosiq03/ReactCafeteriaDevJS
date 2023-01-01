@@ -47,6 +47,10 @@ export default function CriarProduto() {
             productPrice
         }
 
+        if (productCategory === 'Cafés') {
+            body.productCategory = 'Cafes';
+        }
+
         console.log(body);
 
         event.preventDefault();
