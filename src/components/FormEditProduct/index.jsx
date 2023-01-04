@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import InputTextAdmin from '../InputTextAdmin';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import PopUp from '../PopUp';
 
 export default function FormEditProduct() {
     const params = useParams();
@@ -18,7 +19,6 @@ export default function FormEditProduct() {
     useEffect(() => {
         axios.get(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchProduct/${params.data}`)
             .then((product) => {
-                console.log(product.data.Item.productCategory);
                 setProductName(product.data.Item.productName);
                 setProductDesc(product.data.Item.productDesc);
                 if (typeof product.data.Item.productCategory !== 'undefined') {
@@ -74,13 +74,6 @@ export default function FormEditProduct() {
             })
             .catch((err) => console.log(err));
 
-        // fetch(`https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/UpdateProduct/${params.data}`, {
-        //     body: JSON.stringify(body),
-        // })
-        // .then(() => {
-        //     setOpen(true);
-        // })
-        // .catch((err) => console.log(err));
     }
 
 
@@ -106,13 +99,11 @@ export default function FormEditProduct() {
                 <Button className={styles.submit__btn} type='submit' variant="outlined">Editar Produto</Button>
             </form>
             <button className={styles.back__btn} onClick={() => navigate('/admin/functions/atualizarproduto')} >Voltar</button>
-            <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleClose}
-                message={`Produto com id ${params.data} atualizado com sucesso!`}
-                action={action}
-            /> 
+            <PopUp 
+                action={action} 
+                handleClose={handleClose} 
+                open={open} 
+                message={`Produto atualizado com sucesso`} /> 
         </div>
     )
 }

@@ -11,6 +11,7 @@ export default function FilterProducts({ handleChangeFilter }) {
                 <option value="Bebidas">Bebidas</option>
                 <option value="Cafés">Cafés</option>
                 <option value="Salgados">Salgados</option>
+                <option value="Lanches">Lanches</option>
                 <option value="Pratos">Pratos</option>
                 <option value="Doces">Doces</option>
             </select>

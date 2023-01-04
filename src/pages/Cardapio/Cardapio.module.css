@@ -6,3 +6,24 @@
     flex-wrap: wrap;
 
 }
+
+
+
+.cart__btn__fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    width: 4.3rem;
+    background-color: var(--amarelo);
+    color: var(--color-white);
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    color: var(--cinza);
+}
