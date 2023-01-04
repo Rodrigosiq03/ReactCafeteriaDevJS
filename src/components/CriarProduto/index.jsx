@@ -1,9 +1,10 @@
-import { Button, Snackbar, IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react'
 import styles from './CriarProduto.module.css'
 import InputTextAdmin from '../InputTextAdmin';
 import { useNavigate } from 'react-router-dom';
+import PopUp from '../PopUp';
 
 export default function CriarProduto() {
 
@@ -75,13 +76,11 @@ export default function CriarProduto() {
                 <InputTextAdmin type={'number'} sx={{paddingBottom: '10px'}} value={productPrice} onChange={event => setProductPrice(event.target.value)} id="standard-basic"  labelInput="Product Price" />
                 <Button className={styles.submit__btn} type='submit' variant="outlined">Criar Produto</Button>
             </form>
-            <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleClose}
-                message={`Produto ${productName} criado com sucesso!`}
-                action={action}
-            />
+            <PopUp 
+                action={action} 
+                handleClose={handleClose} 
+                open={open} 
+                message={`Produto de nome ${productName} criado com sucesso`} /> 
             <button className={styles.back__btn} onClick={() => navigate('/admin/functions')} >Voltar</button>
         </div>
     )

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import styles from './FormRemoveProduct.module.css';
-import { Button, Snackbar, IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import InputTextAdmin from '../InputTextAdmin';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import PopUp from '../PopUp';
 
 export default function FormRemoveProduct () {
     const params = useParams();
@@ -35,7 +36,6 @@ export default function FormRemoveProduct () {
 
         setOpen(false);
     };
-
     const action = (
         <React.Fragment>
             <IconButton
@@ -89,13 +89,11 @@ export default function FormRemoveProduct () {
                 <Button type='submit' variant="outlined">Remover Produto</Button>
             </form>
             <button className={styles.back__btn} onClick={() => navigate('/admin/functions/removerproduto')} >Voltar</button>
-            <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleClose}
-                message={`Produto "${productName}" removido com sucesso!`}
-                action={action}
-            /> 
+            <PopUp 
+                action={action} 
+                handleClose={handleClose} 
+                open={open} 
+                message={`Produto de nome ${productName} removido com sucesso`} /> 
         </div>
     )
 }

@@ -20,6 +20,7 @@ import AtualizarProduto from './components/AtualizarProduto';
 import FormEditProduct from './components/FormEditProduct';
 import RemoverProduto from './components/RemoverProduto';
 import FormRemoveProduct from './components/FormRemoveProduct';
+import Carrinho from './pages/Carrinho';
 
 
 export default function AppRoutes() {
@@ -42,6 +43,7 @@ export default function AppRoutes() {
           <Route path='/confirm' element={<Confirmation />} />
           <Route path='/menu' element={<Index />} />
           <Route path='/cardapio' element={<Cardapio />} />
+          <Route path='/carrinho' element={<Carrinho />} />
           <Route path='/agendamento' element={<Agendamento />} />
           <Route path='/sobrenos' element={<SobreNos />} />
           <Route path='/contato' element={<Contato />} />
