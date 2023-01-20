@@ -55,6 +55,7 @@ export default function AppRoutes() {
           <Route path='/admin/functions/atualizarproduto/:data' element={<FormEditProduct />} />
           <Route path='/admin/functions/removerproduto' element={<RemoverProduto />} />
           <Route path='/admin/functions/removerproduto/:data' element={<FormRemoveProduct />} />
+          <Route path='*' element={<h1>404 - Not Found</h1>} />
         </Routes>
       </AccountLogin>  
     </Router>

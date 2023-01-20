@@ -27,3 +27,16 @@
     z-index: 100;
     color: var(--cinza);
 }
+
+.center__loading__circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

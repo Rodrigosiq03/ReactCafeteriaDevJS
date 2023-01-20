@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactcafeteriadevjs-dev-145727-authRole",
+      "UnauthRoleArn": "arn:aws:iam::781262240631:role/amplify-reactcafeteriadevjs-dev-145727-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::781262240631:role/amplify-reactcafeteriadevjs-dev-145727-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-reactcafeteriadevjs-dev-145727-deployment",
+      "UnauthRoleName": "amplify-reactcafeteriadevjs-dev-145727-unauthRole",
+      "StackName": "amplify-reactcafeteriadevjs-dev-145727",
+      "StackId": "arn:aws:cloudformation:us-west-2:781262240631:stack/amplify-reactcafeteriadevjs-dev-145727/bdecb4b0-9822-11ed-a042-026c1db524ef",
+      "AmplifyAppId": "d11ct8epgv2rgn"
+    },
+    "categories": {
+      "auth": {
+        "reactcafeteriadevjs05a81d0d": {}
+      }
+    }
+  }
+}

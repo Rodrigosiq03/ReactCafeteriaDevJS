@@ -1,0 +1,11 @@
+@import '../../globalStyles.module.css';
+
+.hidden__error {
+    display: none;
+}
+.error__login {
+    color: red;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
