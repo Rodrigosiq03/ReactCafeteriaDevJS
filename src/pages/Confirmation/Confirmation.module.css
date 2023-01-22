@@ -27,3 +27,24 @@
     padding-top: 4px;
     color: var(--amarelo);
 }
+
+.resend__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.resend__center h3 {
+    font-size: 16px;
+}
+
+.resend__code__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cinza);
+    border-radius: 16px;
+    width: 100px;
+    height: 50px;
+}

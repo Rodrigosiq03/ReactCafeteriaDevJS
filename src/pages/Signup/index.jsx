@@ -3,15 +3,13 @@ import React, { useState } from 'react';
 import styles from './Signup.module.css';
 import globalStyles from '../../globalStyles.module.css'
 
-import { lowerCaseLetters, upperCaseLetters, symbolsValid, numbersValid } from '../../utils/regex';
-
 import Alert from '@mui/material/Alert';
 
 import CardGlobal from '../../components/CardGlobal';
 import SignUpForm from '../../components/SignUpForm';
 
 import { Auth } from 'aws-amplify';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const initialCredentialsState = {
     username: '',
@@ -28,18 +26,25 @@ export default function Signup() {
     const [emptyError, setEmptyError] = useState(false);
     const [alreadyExistsError, setAlreadyExistsError] = useState(false);
     const [passwordLengthError, setPasswordLengthError] = useState(false);
+    const [passwordMatchError, setPasswordMatchError] = useState(false);
 
     function onChange (event) {
         const { name, value } = event.target;
         setCredentials({ ...credentials, [name]: value });
-        console.log(credentials);
         setEmptyError(false);
         setIncorrectError(false);
+        setAlreadyExistsError(false);
+        setPasswordLengthError(false);
+        setPasswordMatchError(false);
     }
 
     async function SignUp(event) {
         event.preventDefault();
-        const { username, password, email } = credentials;
+        const { username, password, email, confirmpassword } = credentials;
+        if (password !== confirmpassword) {
+            setPasswordMatchError(true);
+            return;
+        }
         try {
             const user = await Auth.signUp({
                 username,
@@ -51,6 +56,7 @@ export default function Signup() {
             console.log(user);
             navigate('/confirm')
         } catch (error) {
+            
             console.error("Failed to sign up ", error);
             console.log(error.message);
             if (error.message === 'User already exists') {
@@ -75,6 +81,7 @@ export default function Signup() {
             <CardGlobal>
                 <h1 className={styles.text__hint__register}>Realize o Cadastro</h1>
                 <SignUpForm onChange={onChange} SignUp={SignUp}/>
+                <Link className={styles.link__login} to={'/login'}>Login</Link>
             </CardGlobal>
             { incorrectError && 
                 <Alert 
@@ -103,6 +110,13 @@ export default function Signup() {
                     onClose={() => {setPasswordLengthError(false)}}
                     className={styles.alert__error}
                     severity="error">A senha deve ter no mínimo 8 caracteres!!
+                </Alert> }
+            { passwordMatchError &&
+                <Alert
+                    variant='filled'
+                    onClose={() => {setPasswordMatchError(false)}}
+                    className={styles.alert__error}
+                    severity="error">As senhas não conferem!!
                 </Alert> }
         </div>
     )

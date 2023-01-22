@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import styles from './Login.module.css';
@@ -18,22 +18,16 @@ const initialCredentialsState = {
 }
 
 export default function Login() {
+    useEffect(() => {
+        checkUser();
+    }, );
+
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState(initialCredentialsState);
+    const [user, setUser] = useState(null);
     const [incorrectError, setIncorrectError] = useState(false);
     const [emptyError, setEmptyError] = useState(false);
-    const [admin, setAdmin] = useState(false);
-
-    function isAdmin (event) {
-        event.preventDefault();
-        if (!admin) {
-            setAdmin(true)
-        } else {
-            setAdmin(false)
-        }
-        console.log(admin);
-    }
 
     function onChange (event) {
         const { name, value } = event.target;
@@ -42,16 +36,32 @@ export default function Login() {
         setIncorrectError(false);
     }
 
+    async function checkUser() {
+        try {
+            const user = await Auth.currentAuthenticatedUser();
+            setUser(user);
+            console.log(user);
+            if (user.username.includes('admin')) {
+                navigate('/admin');
+            }
+            else {
+                navigate('/menu');
+            }
+        } catch (err) {
+            console.log('user not signed in');
+        }
+    }
+
     async function logIn(event) {
         event.preventDefault();
         const { username, password } = credentials;
         try {
             const user = await Auth.signIn(username, password);
             console.log(user);
-            if (!isAdmin) {
-                navigate('/menu')
+            if (username.includes('admin')) {
+                navigate('/admin');
             } else {
-                navigate('/admin')
+                navigate('/menu');
             }
 
         } catch (error) {
@@ -77,7 +87,8 @@ export default function Login() {
         <div className={globalStyles.div__container__card}>
             <CardGlobal>
                 <h1 className={globalStyles.text__hint__global}>Realize o Login</h1>
-                <LoginForm submitFunction={ logIn } admin={ admin } isAdmin={ isAdmin } onChange={onChange}/>
+                <LoginForm submitFunction={ logIn } onChange={onChange}/>
+                <Link className={styles.link__register} to={'/forgotpassword'}>Esqueceu sua senha?</Link>
                 <Link className={styles.link__register} to={'/register'}>Registre-se</Link>
             </CardGlobal>
             { incorrectError && 

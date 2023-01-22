@@ -8,10 +8,34 @@
     text-align: center;
     margin: 0;
 }
-.status__btn {
+.center__logout__btn {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logout__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cinza);
+    background-color: var(--amarelo);
+    border-radius: 16px;
+    border: none;
+    width: 100px;
+    height: 50px;
+}
+.logout__btn:hover {
+    color: var(--amarelo);
+    background-color: var(--cinza);
+    border: 2px solid var(--amarelo);
+}
+.logout__btn:active {
+    color: var(--amarelo);
+    background-color: var(--cinza);
+    border: 2px solid var(--amarelo);
+
 }
 
 @media (max-width: 635px) {
