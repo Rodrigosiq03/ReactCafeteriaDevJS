@@ -5,7 +5,6 @@ import Signup from './pages/Signup';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BasePage from './components/BasePage';
 import Index from './pages/IndexPage';
-import globalStyles from './globalStyles.module.css';
 import Admin from './pages/Admin';
 import FunctionsADMIN from './components/FunctionsADMIN';
 import Cardapio from './pages/Cardapio';
@@ -21,12 +20,13 @@ import FormRemoveProduct from './components/FormRemoveProduct';
 import Carrinho from './pages/Carrinho';
 import ForgotPassword from './pages/ForgotPassword';
 import ForgotPasswordConfirmation from './pages/ForgotPasswordConfirmation';
+import NavBar from './components/NavBar';
 
 
 export default function AppRoutes() {
   return (
     <Router>
-      <h1 className={globalStyles.principal__title}>Cafeteria Dev JS</h1>
+      <NavBar />
         <Routes>
           <Route path='/' element={<BasePage />} />
           <Route path='/login' element={<Login />} />

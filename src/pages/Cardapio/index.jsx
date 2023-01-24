@@ -1,16 +1,20 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import MealCards from '../../components/MealCards';
+import { useNavigate } from 'react-router-dom';
+
 import styles from './Cardapio.module.css';
+
+import MealCards from '../../components/MealCards';
 import pathImage from '../../assets/images/cardapio/pratos/1.jpg';
+import PopUp from '../../components/PopUp';
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import CircularProgress from '@mui/material/CircularProgress';
 import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
-import PopUp from '../../components/PopUp';
-import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Cardapio() {
     const navigate = useNavigate();
@@ -125,7 +129,10 @@ export default function Cardapio() {
     return (
         <div>
             <h1>Este é o nosso cardapio seja bem vindo!!!</h1>
-            <button onClick={() => {
+            <IconButton onClick={() => navigate('/menu')}>
+                <ArrowBackIcon fontSize='large' className={styles.arrow__back} />
+            </IconButton>
+            <button className={styles.clear__cart__btn} onClick={() => {
                 removeItems()
 
             }}>Esvaziar carrinho</button>

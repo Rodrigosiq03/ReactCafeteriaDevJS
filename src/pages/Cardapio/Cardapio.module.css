@@ -40,3 +40,36 @@
     align-items: center;
     
 }
+
+.arrow__back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-top: 4px;
+    color: var(--amarelo);
+}
+
+.clear__cart__btn {
+    margin-left: 50px;
+    background-color: var(--amarelo);
+    border: none;
+    width: 120px;
+    height: 30px;
+    border-radius: 16px;
+}
+
+.clear__cart__btn:hover {
+    background-color: var(--cinza);
+    border: 2px solid var(--amarelo);
+    color: var(--amarelo);
+    cursor: pointer;
+}
+
+.clear__cart__btn:active {
+    background-color: var(--cinza);
+    border: 2px solid var(--amarelo);
+    color: var(--amarelo);
+    cursor: pointer;
+}
+

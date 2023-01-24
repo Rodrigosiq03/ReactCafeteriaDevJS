@@ -1,0 +1,6 @@
+@import '../../globalStyles.module.css';
+
+.navbar__container {
+    background-color: var(--amarelo
+    );
+}

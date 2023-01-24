@@ -47,6 +47,7 @@ export default function Login() {
             else {
                 navigate('/menu');
             }
+            localStorage.setItem('username', user.username);
         } catch (err) {
             console.log('user not signed in');
         }
@@ -63,7 +64,7 @@ export default function Login() {
             } else {
                 navigate('/menu');
             }
-
+            localStorage.setItem('username', username);
         } catch (error) {
             console.error("Failed to log in ", error);
             console.log(error.message);
