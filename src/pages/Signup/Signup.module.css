@@ -7,7 +7,8 @@
     color: var(--cinza);
     display: flex;
     justify-content: center;
-    margin-bottom: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .form__register {
@@ -24,40 +25,48 @@
     background-color: var(--amarelo);
 }
 
-.msg__email__error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+.link__login {
+    padding-top: 4px;
+    display: flex;
+    justify-content: center;
+    color: var(--cinza);
+    text-decoration: none;
+    font-size: 20px;
+}
+.link__login:hover {
+    color: var(--cinza);
+    text-decoration: underline;
+}
+.link__login:active {
+    color: var(--cinza);
+    text-decoration: underline;
 }
 
-.msg__password__error {
-    color: red;
-    font-size: 10px;
-    margin-top: 2px;
+
+.alert__error {
+    margin: 10px;
+    animation: fadein ease-in-out 0.5s;
 }
-.msg__password__valid {
-    color: green;
-    font-size: 10px;
-    margin-top: 2px;
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
+
 
 @media (max-width: 424px) {
     .text__hint__register {
         font-size: 20px;
-        padding-top: 60px;
+        padding-top: 0px;
+        padding-bottom: 10px;
     }
     .form__register {
         width: 250px;
         height: 300px;
-    }
-    .msg__email__error {
-        font-size: 10px;
-    }
-    .msg__password__error {
-        font-size: 8px;
-    }
-    .msg__password__valid {
-        font-size: 8px;
     }
 }
 @media (max-width: 285px) {

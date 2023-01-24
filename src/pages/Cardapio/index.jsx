@@ -5,8 +5,8 @@ import styles from './Cardapio.module.css';
 import pathImage from '../../assets/images/cardapio/pratos/1.jpg';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import Alert from '@mui/material/Alert';
-import { Button, Snackbar, IconButton } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import PopUp from '../../components/PopUp';
@@ -41,18 +41,22 @@ export default function Cardapio() {
     );
 
     useEffect(() => {
+        let loadingCircle = document.getElementById('loading__circle');
+        loadingCircle.style.display = 'block';
         axios
             .get(
                 'https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod/FetchAllProducts'
             )
             .then(response => {
                 setProducts(response.data.Items);
+                loadingCircle.style.display = 'none';
             })
             .catch(err => {
                 console.error(err);
             })
 
-        }, []);
+    }, []);
+
     const handleClick = (productName, productPrice) => {
         let cart = [];
         let count = 0;
@@ -110,7 +114,7 @@ export default function Cardapio() {
     const theme = createTheme({
         palette: {
             primary: {
-                main: '#1976d2'
+                main: '#F0DB4F'
             },
             secondary: {
                 main: '#dc004e'
@@ -125,6 +129,11 @@ export default function Cardapio() {
                 removeItems()
 
             }}>Esvaziar carrinho</button>
+            <ThemeProvider theme={theme}>
+                <div className={styles.center__loading__circle}>
+                    <CircularProgress id='loading__circle' className={styles.loading__circle} size={150} />
+                </div>
+            </ThemeProvider>
             <button onClick={() => navigate('/carrinho')} className={styles.cart__btn__fixed}>
                 <ThemeProvider theme={theme}>
                     <Badge

@@ -5,8 +5,6 @@ import Signup from './pages/Signup';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BasePage from './components/BasePage';
 import Index from './pages/IndexPage';
-import { AccountLogin } from './components/AccountLogin';
-import { AccountRegister } from './components/AccountRegister';
 import globalStyles from './globalStyles.module.css';
 import Admin from './pages/Admin';
 import FunctionsADMIN from './components/FunctionsADMIN';
@@ -21,25 +19,20 @@ import FormEditProduct from './components/FormEditProduct';
 import RemoverProduto from './components/RemoverProduto';
 import FormRemoveProduct from './components/FormRemoveProduct';
 import Carrinho from './pages/Carrinho';
+import ForgotPassword from './pages/ForgotPassword';
+import ForgotPasswordConfirmation from './pages/ForgotPasswordConfirmation';
 
 
 export default function AppRoutes() {
   return (
     <Router>
       <h1 className={globalStyles.principal__title}>Cafeteria Dev JS</h1>
-      <AccountLogin>
         <Routes>
           <Route path='/' element={<BasePage />} />
-          <Route path='/login' element={
-            <Login />
-          } 
-          />
-          <Route path='/register' element={
-            <AccountRegister>
-              <Signup />
-            </AccountRegister> 
-          } 
-          />
+          <Route path='/login' element={<Login />} />
+          <Route path='/forgotpassword' element={<ForgotPassword />} />
+          <Route path='/forgot-password-confirmation' element={<ForgotPasswordConfirmation />} />
+          <Route path='/register' element={<Signup />} />
           <Route path='/confirm' element={<Confirmation />} />
           <Route path='/menu' element={<Index />} />
           <Route path='/cardapio' element={<Cardapio />} />
@@ -55,8 +48,8 @@ export default function AppRoutes() {
           <Route path='/admin/functions/atualizarproduto/:data' element={<FormEditProduct />} />
           <Route path='/admin/functions/removerproduto' element={<RemoverProduto />} />
           <Route path='/admin/functions/removerproduto/:data' element={<FormRemoveProduct />} />
-        </Routes>
-      </AccountLogin>  
+          <Route path='*' element={<h1>404 - Not Found</h1>} />
+        </Routes> 
     </Router>
   );
 }

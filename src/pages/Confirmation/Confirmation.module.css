@@ -1,50 +1,50 @@
-.form__confirm {
-    color: white;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center; 
-
-}
-.label__confirm {
-    padding: 10px;
-}
-.button__submit__confirm {
-    cursor: pointer;
-    width: 100px;
-    height: 50px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #F0DB4F;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-.button__submit__confirm:hover {
-    background-color: #F0DB4F;
-    opacity: 0.8;
-}
-.input__confirm {
-    width: 300px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-    margin-top: 10px;
-}
-.input__confirm:focus {
-    outline: none;
-}
+@import '../../globalStyles.module.css';
 
 .confimation__msg {
     padding-left: 50px;
-    color: #F0DB4F;
+    color: var(--amarelo);
 }
 
 .text__hint {
-    color: #F0DB4F;
+    color: var(--amarelo);
     display: flex;
     justify-content: space-around;
     border: 1px solid black;
+}
+
+.cardglobal__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.arrow__back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-top: 4px;
+    color: var(--amarelo);
+}
+
+.resend__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.resend__center h3 {
+    font-size: 16px;
+}
+
+.resend__code__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cinza);
+    border-radius: 16px;
+    width: 100px;
+    height: 50px;
 }
