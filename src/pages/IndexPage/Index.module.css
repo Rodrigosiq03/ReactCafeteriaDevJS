@@ -7,6 +7,7 @@
     color: #F0DB4F;
     text-align: center;
     margin: 0;
+    margin-top: 16px;
 }
 .center__logout__btn {
     display: flex;

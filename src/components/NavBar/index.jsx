@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import LogoIconCinza from '../../assets/logos/logo_icon_cinza.png';
+import LogoStCinza from '../../assets/logos/logo_st_cinza.png';
+
 import styles from './NavBar.module.css';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,17 +15,18 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { Auth } from 'aws-amplify';
+
+const pages = ['Cardápio', 'Agendamento', 'Sobre nós', 'Contato'];
+const settings = ['Perfil', 'Conta', 'Sair'];
 
 export default function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,40 +35,50 @@ export default function NavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = ({ page }) => {
+    
+    if (page === 'Cardápio') {
+      navigate('/cardapio');
+    }
+    if (page === 'Agendamento') {
+      navigate('/agendamento');
+    }
+    if (page === 'Sobre nós') {
+      navigate('/sobrenos');
+    }
+    if (page === 'Contato') {
+      navigate('/contato');
+    }
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = ({ setting }) => {
+
+    if (setting === 'Perfil') {
+      navigate('/perfil');
+    }
+    if (setting === 'Conta') {
+      navigate('/conta');
+    }
+    if (setting === 'Sair') {
+      Auth.signOut();
+      navigate('/login');
+    }
+
+
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar className={styles.navbar__container} position="static">
+    <AppBar className={styles.navbar__container} sx={{backgroundColor: '#F0DB4F'}} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <img src={LogoIconCinza} alt="logo" className={styles.navbar__logo} />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
+              sx={{ color: '#2b2b2b' }}
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -91,42 +106,14 @@ export default function NavBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleCloseNavMenu({ page })}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+          
+          <img src={LogoStCinza} alt="logo" className={styles.navbar__logo__meio} onClick={() => navigate('/menu')} />
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -151,7 +138,7 @@ export default function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => handleCloseUserMenu({ setting })}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
