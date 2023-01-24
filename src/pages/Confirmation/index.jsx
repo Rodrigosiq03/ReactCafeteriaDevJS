@@ -34,6 +34,7 @@ export default function Confirmation() {
         try {
             await Auth.confirmSignUp(username, authCode);
             localStorage.removeItem('username');
+            navigate('/login');
         } catch (error) {
             console.log('Error confirming sign up', error);
         }
