@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactcafeteriadevjs-dev-232429-authRole",
+      "UnauthRoleArn": "arn:aws:iam::781262240631:role/amplify-reactcafeteriadevjs-dev-232429-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::781262240631:role/amplify-reactcafeteriadevjs-dev-232429-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-reactcafeteriadevjs-dev-232429-deployment",
+      "UnauthRoleName": "amplify-reactcafeteriadevjs-dev-232429-unauthRole",
+      "StackName": "amplify-reactcafeteriadevjs-dev-232429",
+      "StackId": "arn:aws:cloudformation:us-west-2:781262240631:stack/amplify-reactcafeteriadevjs-dev-232429/3d051d00-9b8e-11ed-a635-06812e008cc1",
+      "AmplifyAppId": "d3ptxeem32jo1b"
+    }
+  },
+  "auth": {
+    "reactcafeteriadevjs574fc62d": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactcafeteriadevjs-dev-232429-deployment/amplify-cfn-templates/auth/reactcafeteriadevjs574fc62d-cloudformation-template.json",
+        "logicalId": "authreactcafeteriadevjs574fc62d"
+      },
+      "lastPushTimeStamp": "2023-01-24T02:28:54.954Z",
+      "output": {
+        "UserPoolId": "us-west-2_Sciwc9ZfC",
+        "AppClientIDWeb": "7r656f955alqje0066rrqgeta2",
+        "AppClientID": "6d1gm4v13vvvqu46lqkt74kuus",
+        "IdentityPoolId": "us-west-2:dc294596-423a-4485-8232-4ea59b5b83e9",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:781262240631:userpool/us-west-2_Sciwc9ZfC",
+        "IdentityPoolName": "reactcafeteriadevjs574fc62d_identitypool_574fc62d__dev",
+        "UserPoolName": "reactcafeteriadevjs574fc62d_userpool_574fc62d"
+      },
+      "lastPushDirHash": "kxz9oxkDj2i1UuF51w9iWW/JKac="
+    }
+  }
+}
