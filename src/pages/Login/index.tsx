@@ -13,7 +13,7 @@ import { Auth } from 'aws-amplify';
 
 import { css, keyframes } from 'styled-components';
 import { LinkColor } from '../../styles/theme';
-import { useAuth } from '../../utils';
+import { useAuth } from '../../hooks';
 
 
 const fadein = keyframes`
@@ -87,7 +87,10 @@ export default function LoginPage() {
           navigate('/menu');
       }
       localStorage.setItem('username', username);
+
+      // change navbar links
       setAuth(true)
+      
     } catch (error: any) {
       console.error("Failed to log in ", error);
       console.log(error.message);

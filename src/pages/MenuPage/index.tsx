@@ -5,23 +5,22 @@ import styles from './Index.module.css';
 import Menu from '../../components/Menu';
 
 import { Auth } from 'aws-amplify';
-import { useAuth } from '../../utils';
+import { useAuth } from '../../hooks';
+import { useLogout } from '../../hooks/useLogout';
 
 export default function MenuPage() {
 
   const { setAuth } = useAuth();
+  const { logout } = useLogout();
+
   const navigate = useNavigate();
 
   const username = localStorage.getItem('username');
 
   async function logOut() {
-    try {
-      await Auth.signOut();
-      navigate('/');
-      setAuth(false);
-    } catch (err) {
-      console.log('error signing out: ', err);
-    }
+    await logout();
+    setAuth(false);
+    navigate('/');
   }
 
   return (
