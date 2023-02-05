@@ -20,7 +20,7 @@ export default function Menu() {
                     </div>
                 </div>
                 <div className={styles.row__card__image__2}>
-                    <CardImage path={'/sobrenos'} pathImage={sobreNosImage} >Sobre nós</CardImage>
+                    <CardImage path={'/sobre-nos'} pathImage={sobreNosImage} >Sobre nós</CardImage>
                     <div className={styles.vertical__plus__line}>
                         <CardImage path={'/contato'} pathImage={contatoImage} >Contato</CardImage>
                     </div>

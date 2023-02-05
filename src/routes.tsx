@@ -40,7 +40,7 @@ export default function AppRoutes() {
         <Route path='/cardapio' element={<Cardapio />} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/agendamento' element={<Agendamento />} />
-        <Route path='/sobrenos' element={<SobreNos />} />
+        <Route path='/sobre-nos' element={<SobreNos />} />
         <Route path='/contato' element={<Contato />} />
         <Route path='/admin' element={<Admin />} />
         <Route path='/admin/functions' element={<FunctionsADMIN/>} />

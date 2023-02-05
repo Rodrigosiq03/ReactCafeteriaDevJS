@@ -6,19 +6,17 @@ import Menu from '../../components/Menu';
 
 import { Auth } from 'aws-amplify';
 import { useAuth } from '../../hooks';
-import { useLogout } from '../../hooks/useLogout';
 
 export default function MenuPage() {
 
   const { setAuth } = useAuth();
-  const { logout } = useLogout();
 
   const navigate = useNavigate();
 
   const username = localStorage.getItem('username');
 
   async function logOut() {
-    await logout();
+    await Auth.signOut();
     setAuth(false);
     navigate('/');
   }

@@ -47,7 +47,7 @@ export default function NotAuthNavBar() {
   //     navigate('/agendamento');
   //   }
   //   if (page === 'Sobre nós') {
-  //     navigate('/sobrenos');
+  //     navigate('/sobre-nos');
   //   }
   //   if (page === 'Contato') {
   //     navigate('/contato');
