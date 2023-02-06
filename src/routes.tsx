@@ -19,7 +19,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ForgotPasswordConfirmation from './pages/ForgotPasswordConfirmation';
 import { Home, Login, Agendamento } from './pages';
 import NavBar from './components/NavBar';
-import { useAuth } from './hooks';
+import { useAuth } from './hooks/Auth';
 import NotAuthNavBar from './components/NotAuthNavBar';
 
 export default function AppRoutes() {

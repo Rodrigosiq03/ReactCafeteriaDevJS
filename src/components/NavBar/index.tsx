@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import LogoIconCinza from '../../assets/logos/logo_icon_cinza.png';
@@ -15,12 +15,13 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
 
 import { Button } from '@mui/material';
 import { LogoLeftNavbar } from '../../styledComponents/LogoLeftNavbar';
 import { LogoMiddleNavBar } from '../../styledComponents/LogoMiddleNavBar';
+import { Auth } from 'aws-amplify';
+import { useAuth } from '../../hooks/Auth';
 
 const pagesAuth = ['Cardápio', 'Agendamento', 'Sobre nós', 'Contato'];
 const settingsAuth = ['Perfil', 'Conta', 'Sair'];
@@ -28,9 +29,10 @@ const settingsAuth = ['Perfil', 'Conta', 'Sair'];
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const { setAuth } = useAuth();
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   
 
@@ -41,7 +43,7 @@ export default function NavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (page: any) => {
+  const handleCloseNavMenu = (page: any) =>{
 
     if (page === 'Cardápio') {
       navigate('/cardapio');
@@ -62,7 +64,22 @@ export default function NavBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = async (setting: string) => {
+
+    if (setting === 'Perfil') {
+      navigate('/perfil');
+    }
+
+    if (setting === 'Conta') {
+      navigate('/conta');
+    }
+
+    if (setting === 'Sair') {
+      await Auth.signOut();
+      navigate('/');
+      setAuth(false);
+    }
+
     setAnchorElUser(null);
   };
 
@@ -179,7 +196,7 @@ export default function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settingsAuth.map((setting) => (
-                <MenuItem sx={{ backgroundColor: '#F0DB4F' }} key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem sx={{ backgroundColor: '#F0DB4F' }} key={setting} onClick={() => handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

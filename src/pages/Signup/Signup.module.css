@@ -26,7 +26,6 @@
 }
 
 .link__login {
-    padding-top: 4px;
     display: flex;
     justify-content: center;
     color: var(--cinza);

@@ -5,7 +5,7 @@ import styles from './Index.module.css';
 import Menu from '../../components/Menu';
 
 import { Auth } from 'aws-amplify';
-import { useAuth } from '../../hooks';
+import { useAuth } from '../../hooks/Auth';
 
 export default function MenuPage() {
 

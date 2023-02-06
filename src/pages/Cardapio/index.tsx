@@ -83,19 +83,21 @@ export default function Cardapio() {
         
         if (localStorage.getItem('cart') !== null) {
             let cart = JSON.parse(localStorage.getItem('cart') as string);
-            // cart.forEach((item: any) => {
-            //   count += item.quantity;
-            // });
-            
-            cart.forEach((item: any) => {
-              if (item.name === product.productName) {
-                item.quantity += 1;
-                count += 1;
-              } else {
-                count += 1;
-              }
+            // item = {
+            //     name: product.productName,
+            //     price: product.productPrice,
+            //     quantity: 1
+            // }
+            cart.forEach((element: any) => {
+                if (element.name === item.name) {
+                    element.quantity += 1;
+                    count += 1;
+                }
             });
-            cart.push(item);
+            if (count === 0) {
+              cart.push(item);
+            }
+                          
             localStorage.setItem('cart', JSON.stringify(cart));
             console.log(cart);
         } else {
@@ -131,6 +133,9 @@ export default function Cardapio() {
           primary: {
               main: '#F0DB4F'
           },
+          secondary: {
+              main: '#FF0000'
+          }
       }
     });
 
@@ -161,22 +166,18 @@ export default function Cardapio() {
             </button>
             <div className={styles.card__row}>
                 {
-                    products.map((product: IProduct) => {
-                        return (
-                            < MealCards 
-                                key = {product.id}
-                                pathImage = {pathImage}
-                                title = {product.productName}
-                                description = {product.productDesc}
-                                price = {product.productPrice}
-                                handleClick = {
-                                    () => {
-                                        handleClick(product)
-                                    }
-                                } 
-                            /> 
-                        )
-                    })
+                  products.map((product: IProduct) => {
+                    return (
+                      < MealCards 
+                        key = {product.id}
+                        pathImage = {pathImage}
+                        title = {product.productName}
+                        description = {product.productDesc}
+                        price = {product.productPrice}
+                        handleClick = {() =>  handleClick(product)}
+                      /> 
+                    )
+                  })
                 }
             </div>
             <PopUp

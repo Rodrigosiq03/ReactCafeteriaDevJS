@@ -8,15 +8,13 @@ const TextHint = styled.h1`
   font-weight: 700;
 
   @media (max-width: 430px) {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
-    margin-top: 10px;
   }
 
   @media (max-width: 325px) {
-    font-size: 20px;
+    font-size: 16px;
     margin: 0;
-    margin-top: 10px;
   }
 `
 

@@ -12,7 +12,7 @@ import { Amplify } from 'aws-amplify';
 import config from './aws-exports';
 import { GlobalStyle } from './styles/globalStyles';
 import { cafeteriaTheme } from './styles/theme';
-import { AuthProvider } from './hooks';
+import { AuthProvider } from './hooks/Auth';
 
 Amplify.configure(config);
 

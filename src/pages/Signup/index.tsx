@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import styles from './Signup.module.css';
-import globalStyles from '../../globalStyles.module.css'
 
 import Alert from '@mui/material/Alert';
 
@@ -11,6 +10,7 @@ import SignUpForm from '../../components/SignUpForm';
 import { Auth } from 'aws-amplify';
 import { Link, useNavigate } from 'react-router-dom';
 import { Container } from '../../styledComponents/Container';
+import { TextHint } from '../../styledComponents/TextHint';
 
 const initialCredentialsState = {
     username: '',
@@ -80,7 +80,7 @@ export default function Signup() {
     return (
         <Container >
             <CardGlobal>
-                <h1 className={styles.text__hint__register}>Realize o Cadastro</h1>
+                <TextHint >Realize o Cadastro</TextHint>
                 <SignUpForm onChange={onChange} SignUp={SignUp}/>
                 <Link className={styles.link__login} to={'/login'}>Login</Link>
             </CardGlobal>

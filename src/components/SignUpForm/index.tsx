@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Form, Input, Label } from '../../styledComponents/Form';
 
 export default function SignUpForm ({ SignUp, onChange }: { SignUp: any, onChange: any }) {

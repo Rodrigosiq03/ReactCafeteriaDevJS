@@ -13,7 +13,7 @@ import { Auth } from 'aws-amplify';
 
 import { css, keyframes } from 'styled-components';
 import { LinkColor } from '../../styles/theme';
-import { useAuth } from '../../hooks';
+import { useAuth } from '../../hooks/Auth';
 
 
 const fadein = keyframes`

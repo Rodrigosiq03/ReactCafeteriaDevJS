@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import LogoIconCinza from '../../assets/logos/logo_icon_cinza.png';
@@ -15,7 +15,6 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
 
 import { Button } from '@mui/material';
@@ -27,50 +26,7 @@ const settingsNoAuth = ['Login', 'Registro'];
 
 
 export default function NotAuthNavBar() {
-  // const navigate = useNavigate();
-  // const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [anchorElUser, setAnchorElUser] = useState(null);
-
-  // const handleOpenNavMenu = (event: any) => {
-  //   setAnchorElNav(event.currentTarget);
-  // };
-  // const handleOpenUserMenu = (event: any) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
-
-  // const handleCloseNavMenu = ({ page }: any) => {
-    
-  //   if (page === 'Cardápio') {
-  //     navigate('/cardapio');
-  //   }
-  //   if (page === 'Agendamento') {
-  //     navigate('/agendamento');
-  //   }
-  //   if (page === 'Sobre nós') {
-  //     navigate('/sobre-nos');
-  //   }
-  //   if (page === 'Contato') {
-  //     navigate('/contato');
-  //   }
-  //   setAnchorElNav(null);
-  // };
-
-  // const handleCloseUserMenu = ({ setting }: any) => {
-
-  //   if (setting === 'Perfil') {
-  //     navigate('/perfil');
-  //   }
-  //   if (setting === 'Conta') {
-  //     navigate('/conta');
-  //   }
-  //   if (setting === 'Sair') {
-  //     Auth.signOut();
-  //     navigate('/login');
-  //   }
-
-
-  //   setAnchorElUser(null);
-  // };
+  const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -82,105 +38,42 @@ export default function NotAuthNavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page: string) => {
+
+    if (page === 'Login') {
+      navigate('/login');
+    }
+
+    if (page === 'Registro') {
+      navigate('/register');
+    }
+
+    if (page === 'Sobre nós') {
+      navigate('/sobre-nos');
+    }
+
+    if (page === 'Contato') {
+      navigate('/contato');
+    }
+
+
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = async (setting: string) => {
+    if (setting === 'Login') {
+      navigate('/login');
+    }
+    if (setting === 'Registro') {
+      navigate('/register');
+    }
+    
     setAnchorElUser(null);
   };
 
 
 
   return (
-    // <AppBar sx={{backgroundColor: '#F0DB4F'}} position="static">
-    //   <Container maxWidth="xl">
-    //     <Toolbar disableGutters>
-    //       <img src={LogoIconCinza} alt="logo" className={styles.navbar__logo} />
-
-    //       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-    //         <IconButton
-    //           size="large"
-    //           sx={{ color: '#2b2b2b' }}
-    //           aria-label="account of current user"
-    //           aria-controls="menu-appbar"
-    //           aria-haspopup="true"
-    //           onClick={handleOpenNavMenu}
-    //           color="inherit"
-    //         >
-    //           <MenuIcon />
-    //         </IconButton>
-    //         <Menu
-    //           id="menu-appbar"
-    //           anchorEl={anchorElNav}
-    //           anchorOrigin={{
-    //             vertical: 'bottom',
-    //             horizontal: 'left',
-    //           }}
-    //           keepMounted
-    //           transformOrigin={{
-    //             vertical: 'top',
-    //             horizontal: 'left',
-    //           }}
-    //           open={Boolean(anchorElNav)}
-    //           onClose={handleCloseNavMenu}
-    //           sx={{
-    //             display: { xs: 'block', md: 'none' },
-    //           }}
-    //         >
-    //           { isAuth && pagesAuth.map((page) => (
-    //             <MenuItem key={page} onClick={() => handleCloseNavMenu({ page })}>
-    //               <Typography textAlign="center">{page}</Typography>
-    //             </MenuItem>
-    //           ))}
-    //           { !isAuth && pagesNoAuth.map((page) => (
-    //             <MenuItem key={page} onClick={() => handleCloseNavMenu({ page })}>
-    //               <Typography textAlign="center">{page}</Typography>
-    //             </MenuItem>
-    //           ))}
-    //         </Menu>
-    //       </Box>
-          
-    //       <img src={LogoStCinza} alt="logo" className={styles.navbar__logo__meio} onClick={() => navigate('/menu')} />
-
-    //       <Box sx={{ flexGrow: 0 }}>
-    //         <Tooltip title="Open settings">
-    //           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-    //             <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-    //           </IconButton>
-    //         </Tooltip>
-    //         <Menu
-    //           sx={{ mt: '45px' }}
-    //           id="menu-appbar"
-    //           anchorEl={anchorElUser}
-    //           anchorOrigin={{
-    //             vertical: 'top',
-    //             horizontal: 'right',
-    //           }}
-    //           keepMounted
-    //           transformOrigin={{
-    //             vertical: 'top',
-    //             horizontal: 'right',
-    //           }}
-    //           open={Boolean(anchorElUser)}
-    //           onClose={handleCloseUserMenu}
-    //         >
-    //           { isAuth && settingsAuth.map((setting) => (
-    //             <MenuItem key={setting} onClick={() => handleCloseUserMenu({ setting })}>
-    //               <Typography textAlign="center">{setting}</Typography>
-    //             </MenuItem>
-    //           ))}
-    //           { !isAuth && settingsNoAuth.map((setting) => (
-    //             <MenuItem key={setting} onClick={() => handleCloseUserMenu({ setting })}>
-    //               <Typography textAlign="center">{setting}</Typography>
-    //             </MenuItem>
-    //           ))}
-    //         </Menu>
-    //       </Box>
-    //     </Toolbar>
-    //   </Container>
-    // </AppBar>
-
     <AppBar sx={{backgroundColor: '#F0DB4F'}} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -232,7 +125,7 @@ export default function NotAuthNavBar() {
               }}
             >
               {pagesNoAuth.map((page) => (
-                <MenuItem sx={{ backgroundColor: '#F0DB4F' }} key={page} onClick={handleCloseNavMenu}>
+                <MenuItem sx={{ backgroundColor: '#F0DB4F' }} key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography sx={{ color: '#2b2b2b' }} textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -259,7 +152,7 @@ export default function NotAuthNavBar() {
             {pagesNoAuth.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCloseNavMenu(page)}
                 sx={{ my: 2, color: '#2b2b2b', display: 'block', '&:hover': { color: '#2b2b2b', textDecoration: 'underline' }  }}
               >
                 {page}
@@ -290,7 +183,7 @@ export default function NotAuthNavBar() {
               onClose={handleCloseUserMenu}
             >
               {settingsNoAuth.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem sx={{ backgroundColor: '#F0DB4F' }} key={setting} onClick={() => handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

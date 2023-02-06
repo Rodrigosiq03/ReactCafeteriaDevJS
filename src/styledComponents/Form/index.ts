@@ -13,7 +13,13 @@ const Form = styled.form`
 const Label = styled.label`
   color: ${({ theme }: {theme: ITheme}) => theme.colors.cinza};
   padding: 10px;
-  font-size: 24px;
+  font-size: 20px;
+
+  @media (max-width: 430px) {
+    font-size: 20px;
+    margin: 0;
+    padding: 4px;
+  }
   
 `
 
@@ -35,6 +41,7 @@ const Input = styled.input`
     width: 220px;
     height: 25px;
     margin-top: 0;
+    font-size: 16px;
   }
 
   @media (max-width: 325px) {
@@ -47,8 +54,8 @@ const Input = styled.input`
 
 const Button = styled.button`
   cursor: pointer;
-  width: 150px;
-  height: 70px;
+  width: 120px;
+  height: 50px;
   color: white;
   border-radius: 10px;
   background-color: var(--cinza);
@@ -64,6 +71,9 @@ const Button = styled.button`
     outline: none;
     border: 2px solid ${({ theme }: {theme: ITheme}) => theme.colors.cinza};
   }
+
+  
+
 `
 
 
