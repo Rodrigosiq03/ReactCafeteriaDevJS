@@ -21,6 +21,7 @@ import { Home, Login, Agendamento } from './pages';
 import NavBar from './components/NavBar';
 import { useAuth } from './hooks/Auth';
 import NotAuthNavBar from './components/NotAuthNavBar';
+import { CartProvider } from './hooks/Cart';
 
 export default function AppRoutes() {
 
@@ -37,8 +38,18 @@ export default function AppRoutes() {
         <Route path='/register' element={<Signup />} />
         <Route path='/confirm' element={<Confirmation />} />
         <Route path='/menu' element={<Menu />} />
-        <Route path='/cardapio' element={<Cardapio />} />
-        <Route path='/carrinho' element={<Carrinho />} />
+
+        <Route path='/cardapio' element={
+          <CartProvider>
+            <Cardapio />
+          </CartProvider>
+        }/>
+        <Route path='/carrinho' element={
+          <CartProvider>
+            <Carrinho />
+          </CartProvider>
+        } />
+
         <Route path='/agendamento' element={<Agendamento />} />
         <Route path='/sobre-nos' element={<SobreNos />} />
         <Route path='/contato' element={<Contato />} />
