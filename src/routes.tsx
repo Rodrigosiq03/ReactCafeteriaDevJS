@@ -1,27 +1,27 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Confirmation from './pages/Confirmation';
-import Signup from './pages/Signup';
-import Menu from './pages/MenuPage';
-import Admin from './pages/Admin';
-import FunctionsADMIN from './components/FunctionsADMIN';
-import Cardapio from './pages/Cardapio';
-import SobreNos from './pages/SobreNos';
-import Contato from './pages/Contato';
-import VerProdutos from './components/VerProdutos';
-import CriarProduto from './components/CriarProduto';
-import AtualizarProduto from './components/AtualizarProduto';
-import FormEditProduct from './components/FormEditProduct';
-import RemoverProduto from './components/RemoverProduto';
-import FormRemoveProduct from './components/FormRemoveProduct';
-import Carrinho from './pages/Carrinho';
-import ForgotPassword from './pages/ForgotPassword';
-import ForgotPasswordConfirmation from './pages/ForgotPasswordConfirmation';
-import { Home, Login, Agendamento } from './pages';
-import NavBar from './components/NavBar';
-import { useAuth } from './hooks/Auth';
-import NotAuthNavBar from './components/NotAuthNavBar';
-import { CartProvider } from './hooks/Cart';
+import Confirmation from './Presentation/pages/Confirmation';
+import Signup from './Presentation/pages/Signup';
+import Menu from './Presentation/pages/MenuPage';
+import Admin from './Presentation/pages/Admin';
+import FunctionsADMIN from './Presentation/components/FunctionsADMIN';
+import Cardapio from './Presentation/pages/Cardapio';
+import SobreNos from './Presentation/pages/SobreNos';
+import Contato from './Presentation/pages/Contato';
+import VerProdutos from './Presentation/components/VerProdutos';
+import CriarProduto from './Presentation/components/CriarProduto';
+import AtualizarProduto from './Presentation/components/AtualizarProduto';
+import FormEditProduct from './Presentation/components/FormEditProduct';
+import RemoverProduto from './Presentation/components/RemoverProduto';
+import FormRemoveProduct from './Presentation/components/FormRemoveProduct';
+import Carrinho from './Presentation/pages/Carrinho';
+import ForgotPassword from './Presentation/pages/ForgotPassword';
+import ForgotPasswordConfirmation from './Presentation/pages/ForgotPasswordConfirmation';
+import { Home, Login, Agendamento } from './Presentation/pages';
+import NavBar from './Presentation/components/NavBar';
+import { useAuth } from './Presentation/hooks/Auth';
+import NotAuthNavBar from './Presentation/components/NotAuthNavBar';
+import { CartProvider } from './Presentation/hooks/Cart';
 
 export default function AppRoutes() {
 

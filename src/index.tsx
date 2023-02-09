@@ -10,9 +10,9 @@ import ReactDOM from 'react-dom/client';
 // amplify: configuration
 import { Amplify } from 'aws-amplify';
 import config from './aws-exports';
-import { GlobalStyle } from './styles/globalStyles';
-import { cafeteriaTheme } from './styles/theme';
-import { AuthProvider } from './hooks/Auth';
+import { GlobalStyle } from './Presentation/styles/globalStyles';
+import { cafeteriaTheme } from './Presentation/styles/theme';
+import { AuthProvider } from './Presentation/hooks/Auth';
 
 Amplify.configure(config);
 
