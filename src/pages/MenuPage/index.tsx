@@ -6,6 +6,7 @@ import Menu from '../../components/Menu';
 
 import { Auth } from 'aws-amplify';
 import { useAuth } from '../../hooks/Auth';
+import { useState } from 'react';
 
 export default function MenuPage() {
 
@@ -13,7 +14,20 @@ export default function MenuPage() {
 
   const navigate = useNavigate();
 
-  const username = localStorage.getItem('username');
+  const [username, setUsername] = useState<string>('');
+
+  const getUsername = async () => {
+    const userAuth = await Auth.currentAuthenticatedUser()
+    const username = userAuth.storage.username
+    
+    return username
+  } 
+
+  getUsername().then((username) => {
+    setUsername(username)
+  })
+  
+    
 
   async function logOut() {
     await Auth.signOut();
