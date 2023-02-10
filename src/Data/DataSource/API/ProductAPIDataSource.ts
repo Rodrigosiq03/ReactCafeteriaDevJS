@@ -4,40 +4,42 @@ import { IProductAPIEntity } from "./Entity/ProductAPIEntity";
 
 const BASE_URL = "https://zyled812nk.execute-api.us-east-1.amazonaws.com/Prod";
 
-interface TypedResponse<T = any> extends Response {
-  json<P = T>(): Promise<P>;
-}
-
-function myOwnFetch<T>(...args: any): Promise<TypedResponse<T>> {
-  return fetch.apply(window, args)
-}
+const myOwnFetch = async <T>(url: string, options?: RequestInit): Promise<T> => {
+  const response = await fetch(url, options);
+  const json = await response.json();
+  return json;
+};
 
 export default class ProductAPIDataSourceImpl implements IProductsDataSource {
-  
+
   async getProducts(): Promise<IProduct[]> {
-    const response = await myOwnFetch<IProductAPIEntity[]>(`${BASE_URL}/FetchAllProducts`);
-    const products = await response.json();
-    console.log(products);
+    const response = await myOwnFetch<IProductAPIEntity>(`${BASE_URL}/FetchAllProducts`);
+    console.log("response", response.Items);
     
+    const products = response.Items;
+
+    console.log("products", products);
+    
+
     return products.map(product => ({
-      id: product.Items.products[0].id,
-      productName: product.Items.products[0].productName,
-      productPrice: product.Items.products[0].productPrice,
-      productDesc: product.Items.products[0].productDesc,
-      productCategory: product.Items.products[0].productCategory
+      id: product.id,
+      productName: product.productName,
+      productPrice: product.productPrice,
+      productDesc: product.productDesc,
+      productCategory: product.productCategory
     }));
 
   }
 
   async getProductsByCategpry(category: string): Promise<IProduct[]> {
-    const response = await myOwnFetch<IProductAPIEntity[]>(`${BASE_URL}/FetchProductsByCategory/${category}`);
-    const products = await response.json();
+    const response = await myOwnFetch<IProductAPIEntity>(`${BASE_URL}/FetchProductsByCategory/${category}`);
+    const products = response.Items;
     return products.map(product => ({
-      id: product.Items.products[0].id,
-      productName: product.Items.products[0].productName,
-      productPrice: product.Items.products[0].productPrice,
-      productDesc: product.Items.products[0].productDesc,
-      productCategory: product.Items.products[0].productCategory
+      id: product.id,
+      productName: product.productName,
+      productPrice: product.productPrice,
+      productDesc: product.productDesc,
+      productCategory: product.productCategory
     }));
   }
 
@@ -49,13 +51,13 @@ export default class ProductAPIDataSourceImpl implements IProductsDataSource {
       },
       body: JSON.stringify(product)
     });
-    const newProduct = await response.json();
+    const newProduct = response.Items[0];
     return {
-      id: newProduct.Items.products[0].id,
-      productName: newProduct.Items.products[0].productName,
-      productPrice: newProduct.Items.products[0].productPrice,
-      productDesc: newProduct.Items.products[0].productDesc,
-      productCategory: newProduct.Items.products[0].productCategory
+      id: newProduct.id,
+      productName: newProduct.productName,
+      productPrice: newProduct.productPrice,
+      productDesc: newProduct.productDesc,
+      productCategory: newProduct.productCategory
     };
   }
 
@@ -67,13 +69,13 @@ export default class ProductAPIDataSourceImpl implements IProductsDataSource {
       },
       body: JSON.stringify(product)
     });
-    const updatedProduct = await response.json();
+    const updatedProduct = response.Items[0];
     return {
-      id: updatedProduct.Items.products[0].id,
-      productName: updatedProduct.Items.products[0].productName,
-      productPrice: updatedProduct.Items.products[0].productPrice,
-      productDesc: updatedProduct.Items.products[0].productDesc,
-      productCategory: updatedProduct.Items.products[0].productCategory
+      id: updatedProduct.id,
+      productName: updatedProduct.productName,
+      productPrice: updatedProduct.productPrice,
+      productDesc: updatedProduct.productDesc,
+      productCategory: updatedProduct.productCategory
     };
   }
 
@@ -84,13 +86,13 @@ export default class ProductAPIDataSourceImpl implements IProductsDataSource {
         "Content-Type": "application/json"
       }
     });
-    const deletedProduct = await response.json();
+    const deletedProduct = response.Items[0];
     return {
-      id: deletedProduct.Items.products[0].id,
-      productName: deletedProduct.Items.products[0].productName,
-      productPrice: deletedProduct.Items.products[0].productPrice,
-      productDesc: deletedProduct.Items.products[0].productDesc,
-      productCategory: deletedProduct.Items.products[0].productCategory
+      id: deletedProduct.id,
+      productName: deletedProduct.productName,
+      productPrice: deletedProduct.productPrice,
+      productDesc: deletedProduct.productDesc,
+      productCategory: deletedProduct.productCategory
     };
   }
 

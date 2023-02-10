@@ -9,8 +9,6 @@ export interface IProduct {
 }
 
 export interface IProductAPIEntity {
-  Items: {
-    products: IProduct[]
-  };
+  Items: IProduct[];
 }
 
