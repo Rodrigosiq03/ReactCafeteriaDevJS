@@ -42,7 +42,7 @@ export default function Carrinho() {
               <div className={styles.item}>
                 <h4 className={styles.product__name}>{item.productName}</h4>
                 <div className={styles.left__item__info}>
-                  <AddOrRemove addOnClick={() => addToCart(item)} removeOnClick={() => removeFromCart(item)} quantity={item.productQuantity || 0}/>
+                  <AddOrRemove addOnClick={() => addToCart(item)} removeOnClick={() => removeFromCart(item)} quantity={item.productQuantity}/>
                   <p className={styles.price}>{ `R$ ${item.productPrice}` }</p>
                 </div>
                 <IconButton aria-label="delete" onClick={() => iconDeleteItem(item)}>

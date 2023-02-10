@@ -7,6 +7,8 @@ import Menu from '../../components/Menu';
 import { Auth } from 'aws-amplify';
 import { useAuth } from '../../../Presentation/hooks/Auth';
 import { useState } from 'react';
+import { CenterLogoutBtn } from '../../styledComponents/CenterLogoutBtn';
+import { LogoutBtn } from '../../styledComponents/LogoutBtn';
 
 export default function MenuPage() {
 
@@ -37,11 +39,11 @@ export default function MenuPage() {
 
   return (
     <div>
-        <h1 className={styles.title__welcome}>Bem vindo ao Cafeteria Dev JS, { username }</h1>
-        <Menu/>
-        <div className={styles.center__logout__btn}>
-            <button className={styles.logout__btn} onClick={logOut} >Sair</button>
-        </div>
+      <h1 className={styles.title__welcome}>Bem vindo ao Cafeteria Dev JS, { username }</h1>
+      <Menu/>
+      <CenterLogoutBtn>
+        <LogoutBtn onClick={logOut} >Sair</LogoutBtn>
+      </CenterLogoutBtn>
     </div>
   )
 }

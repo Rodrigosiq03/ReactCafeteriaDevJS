@@ -27,8 +27,13 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
 
     if (isAlreadyInCart) {
       setCart(
-        cart.map((IProduct) =>
-          IProduct.id === item.id ? { ...IProduct, quantity: IProduct.productQuantity || 0 + 1 } : IProduct
+        cart.map((IProduct) => {
+            if (IProduct.productQuantity && IProduct.id === item.id) {
+              return { ...IProduct, productQuantity: IProduct.productQuantity + 1 };
+            } else {
+              return IProduct;
+            }
+          }
         )
       );
     } else {
@@ -44,10 +49,15 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       setCart(cart.filter((IProduct) => IProduct.id !== item.id));
     }
 
-    if (item.productQuantity || 0 > 1) {
+    if (item.productQuantity && item.productQuantity > 1) {
       setCart(
-        cart.map((IProduct) =>
-          IProduct.id === item.id ? { ...IProduct, quantity: IProduct.productQuantity || 0 - 1 } : IProduct
+        cart.map((IProduct) => {
+            if (IProduct.productQuantity && IProduct.id === item.id) {
+              return { ...IProduct, productQuantity: IProduct.productQuantity - 1 };
+            } else {
+              return IProduct;
+            }
+          }
         )
       );
     }
