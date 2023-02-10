@@ -1,7 +1,5 @@
-import React from 'react';
 import { Link } from '../../../Presentation/styledComponents/Link';
 import { TextAdminHome, TitleAdminHome } from '../../../Presentation/styledComponents/TextAdminHome';
-import { LinkColor } from '../../styles/theme';
 
 export default function AdminPage() {
     return (
@@ -12,7 +10,7 @@ export default function AdminPage() {
           <TextAdminHome>
             Clique abaixo para começar a utilizar as funcionalidades de ADMIN
           </TextAdminHome>
-          <Link color={LinkColor.AMARELO} href='/admin/functions'>ADMIN</Link>
+          <Link style={{ color: '#F0DB4F', textDecoration: 'underline' }} href='/admin/functions'>ADMIN</Link>
       </div>
   )
 }
