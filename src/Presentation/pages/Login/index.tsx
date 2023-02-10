@@ -87,7 +87,7 @@ export default function LoginPage() {
           navigate('/confirm')
       }
       if (error.code === 'NotAuthorizedException') {
-          navigate('/confirm')
+          setIncorrectError(true);
       }
       if (error.code === 'UserNotFoundException') {
           setIncorrectError(true);
